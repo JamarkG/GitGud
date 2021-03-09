@@ -1,0 +1,7 @@
+mixin ValidationErrorSummary(errors)
+  if errors
+    div(class='alert alert-danger' role='start')
+      p The following errors occurred:
+      ul
+        each error in errors
+          li= error
