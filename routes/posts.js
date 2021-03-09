@@ -5,3 +5,10 @@ const { csrfProtection, asyncHandler } = require("./utils");
 const { check, validationResult } = require("express-validator");
 const post = require("../db/models/post");
 const { loginUser, logoutUser } = require("../auth");
+
+router.get('/posts/:id(\\d+)', asyncHandler( async ( req, res) => {
+  const postId = parseInt(req.params.id, 10)
+  const post = await db.Post.findByPk(postId) // come back and include comments table
+  const postTitle = 
+  res.render('post-detail', {title: "Post", })
+}))
