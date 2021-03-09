@@ -9,6 +9,7 @@ const { loginUser, logoutUser } = require("../auth");
 router.get('/posts/:id(\\d+)', asyncHandler( async ( req, res) => {
   const postId = parseInt(req.params.id, 10)
   const post = await db.Post.findByPk(postId) // come back and include comments table
-  const postTitle = 
-  res.render('post-detail', {title: "Post", })
+  res.render('post-detail', {title: post.title, post})
 }))
+
+module.exports = router
