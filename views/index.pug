@@ -7,8 +7,8 @@ append head
   script(src="/javascripts/index.js" type="module" defer)
 
 block content
-  p Welcome to your Project Skeleton
+  p Topics
   div
     each topic in topics
       ul
-        li= topic.name
+        li: a(href='/posts/topic.id')= topic.name

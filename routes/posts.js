@@ -6,7 +6,8 @@ const { check, validationResult } = require("express-validator");
 const { loginUser, logoutUser, requireAuth } = require("../auth");
 
 router.get('/create', csrfProtection, requireAuth, asyncHandler(async (req, res) => {
-    res.render('posts-create', {title: "Create Post", csrfToken: req.csrfToken()});
+    const topics = await db.Topic.findAll();
+    res.render('posts-create', {title: "Create Post", topics, csrfToken: req.csrfToken()});
 }))
 
 const postValidators = [
