@@ -11,4 +11,4 @@ block content
   div
     each topic in topics
       ul
-        li: a(href='/posts/topic.id')= topic.name
+        li: a(href=`/posts/?topic=${topic.id}`)= topic.name
