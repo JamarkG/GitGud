@@ -1,0 +1,13 @@
+extends layout.pug
+
+block content
+    form(method="post" action="/posts/create")
+        input(type="hidden" name="_csrf" value=csrfToken)
+        div
+            label Title
+            input(type="text" name="title" required)
+        div
+            label
+            textarea(name="textField" required)
+        div
+            button(type="submit") Submit
