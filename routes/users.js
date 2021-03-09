@@ -11,10 +11,8 @@ router.get(
   "/register",
   csrfProtection,
   asyncHandler(async (req, res, next) => {
-    const user = db.User.build();
     res.render("user-register", {
       title: "Register",
-      user,
       csrfToken: req.csrfToken(),
     });
   })
