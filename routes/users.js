@@ -4,7 +4,6 @@ const router = express.Router();
 const { csrfProtection, asyncHandler } = require("./utils");
 const { check, validationResult } = require("express-validator");
 const bcrypt = require("bcryptjs");
-const user = require("../db/models/user");
 const { loginUser, logoutUser } = require("../auth");
 
 /* GET users listing. */
@@ -148,7 +147,8 @@ router.post(
           res.redirect("/");
         }
       }
-      errors.push("Login attempt failed.");
+
+      errors.push("Login attempt failed");
     } else {
       errors = validationErrors.array().map((error) => error.msg);
     }
