@@ -12,4 +12,6 @@ block content
         td=post.userId
         td=post.title
         td=post.textField
-  button(href=`/posts/${post.id}`) Delete
+  form(action=`/posts/${post.id}` method='post')
+    input(type="hidden" value=csrfToken name="_csrf")
+    button(type="submit") Delete
