@@ -10,4 +10,9 @@ block content
             label
             textarea(name="textField" required)
         div
+            each topic in topics
+                div
+                    input(type="checkbox" id=topic.id name=topic.name)
+                    label(for=topic.name) #{topic.name}
+        div
             button(type="submit") Submit
