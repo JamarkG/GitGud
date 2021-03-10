@@ -25,3 +25,8 @@ body, header, nav {
 h1 {
   font-size: 2rem;
 }
+
+.navbar {
+  display: flex;
+  list-style-type: none;
+}
