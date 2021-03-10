@@ -33,6 +33,9 @@ h1 {
 }
 
 #home {
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
   height: 65px;
   width: 75px;
 }
@@ -56,10 +59,11 @@ h1 {
   box-shadow: 10px 10px 10px 4px rgba(22, 22, 24, 0.6);
   border-radius: 15px;
   position: relative;
-  top: 220px;
-  padding: 145px;
+  top: 90px;
+  padding: 115px;
   width: 35%;
   max-width: 400px;
+  max-height: 710px;
   list-style-type: none;
 }
 
@@ -84,4 +88,21 @@ h1 {
 
 #title-format {
   text-decoration: underline solid black 1.5px;
+}
+
+.input-hover:hover {
+  border: 1px solid blue;
+}
+
+#formInput1, #formInput2, #formInput3, #formInput4, #formInput5, #formInput6, #formInput7 {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  flex-direction: column;
+  padding-bottom: 15px;
+}
+
+#submitbutton {
+  display: flex;
+  justify-content: center;
 }

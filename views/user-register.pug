@@ -8,28 +8,29 @@ html
   body.loginPage
     include utils.pug
     .loginForm
+        img#home(src="/images/GGLogoWhite.png")
         #loginTitle GitGud
         p#slogan Quora for Gamers
         h2#title-format=title
         +ValidationErrorSummary(errors)
         form(method="post" action="/users/register")
             input(type="hidden" name="_csrf" value=csrfToken)
-            div
+            div#formInput1
                 label First Name
-                input(type="text" name="firstName" required)
-            div
+                input.input-hover(type="text" name="firstName" placeholder="Bart" required)
+            div#formInput2
                 label Last Name
-                input(type="text" name="lastName" required)
-            div
+                input.input-hover(type="text" name="lastName" placeholder="Dorsy" required)
+            div#formInput3
                 label Password
-                input(type="password" name="password" required)
-            div
+                input.input-hover(type="password" name="password" placeholder="StrongP@ssword!" required)
+            div#formInput4
                 label Confirm Password
-                input(type="password" name="confirmPassword" required)
-            div
+                input.input-hover(type="password" name="confirmPassword" placeholder="StrongP@ssword!" required)
+            div#formInput5
                 label Email
-                input(type="email" name="emailAddress" required)
-            div
+                input.input-hover(type="email" name="emailAddress" placeholder="bart@appacademy.com" required)
+            div#submitbutton
                 button(type="submit") Submit
         div
-            p: a(href="/users/login") Already have an account?
+            p: a(href="/users/login") Already have an account? Log in here!
