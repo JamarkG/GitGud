@@ -1,9 +1,17 @@
-var express = require('express');
-var router = express.Router();
+const express = require("express");
+const db = require("../db/models");
+const router = express.Router();
+const { csrfProtection, asyncHandler } = require("./utils");
+const { check, validationResult } = require("express-validator");
+const { loginUser, logoutUser, requireAuth } = require("../auth");
+const { names } = require("debug");
+
 
 /* GET home page. */
-router.get('/', function(req, res, next) {
-  res.render('index', { title: 'a/A Express Skeleton Home' });
-});
+router.get('/', asyncHandler( async (req, res, next) => {
+  const topics = await db.Topic.findAll();
+  console.log(topics);
+  res.render('index', { topics, title: 'Welcome to Gitgud' });
+}));
 
 module.exports = router;
