@@ -7,15 +7,15 @@ module.exports = {
       [
         {
           body: "This is the first comment",
-          userId: 2,
-          postId: 8,
+          userId: 1,
+          postId: 1,
           createdAt: new Date(),
           updatedAt: new Date(),
         },
         {
           body: "This is the second comment",
-          userId: 3,
-          postId: 8,
+          userId: 2,
+          postId: 1,
           createdAt: new Date(),
           updatedAt: new Date(),
         },
