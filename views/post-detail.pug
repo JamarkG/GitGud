@@ -29,3 +29,6 @@ block content
             p(class="comment-box-text") #{comment.body}
           if comment.userId === locals.user.id
             button(class="delete-button btn btn-secondary" id=`${comment.id}`) Delete
+            button(class="edit-button btn btn-secondary" id=`${comment.id}`) Edit
+  input(class="new-comment-box" name=post.id)
+  button(class="add-comment") Add Comment
