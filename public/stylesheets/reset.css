@@ -29,4 +29,14 @@ h1 {
 .navbar {
   display: flex;
   list-style-type: none;
+  background-color: rgb(233, 233, 233);
+}
+
+#home {
+  height: 65px;
+  width: 75px;
+}
+
+#welcomeMessage {
+  text-align: center;
 }
