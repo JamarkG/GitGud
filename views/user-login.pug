@@ -1,15 +1,25 @@
-extends layout.pug
-include utils.pug
-
-block content
-    +ValidationErrorSummary(errors)
-    form(method="post" action="/users/login")
-        input(type="hidden" name="_csrf" value=csrfToken)
-        div
-            label Email Address
-            input(type='email' name='emailAddress' required)
-        div
-            label Password
-            input(type='password' name='password' required)
-        div
-            button(type='submit') Submit
+doctype html
+html
+  head
+      block head
+        title= title
+        link(rel='stylesheet' href='/stylesheets/reset.css')
+        link(rel='stylesheet' href='https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css' integrity='sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh' crossorigin='anonymous')
+  body.loginPage
+    include utils.pug
+    .loginForm
+        #loginTitle GitGud
+        h2=title
+        +ValidationErrorSummary(errors)
+        form(method="post" action="/users/login")
+            input(type="hidden" name="_csrf" value=csrfToken)
+            div
+                label Email Address
+                input(type='email' name='emailAddress' required)
+            div
+                label Password
+                input(type='password' name='password' required)
+            div
+                button(type='submit') Submit
+            div.registerUser
+                a(href="/users/register") Register User

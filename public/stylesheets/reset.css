@@ -37,6 +37,35 @@ h1 {
   width: 75px;
 }
 
-#welcomeMessage {
+#welcomeTitle {
   text-align: center;
 }
+
+.loginPage {
+  background-image: url('/images/nintendo.png');
+  display: flex;
+  justify-content: center;
+}
+
+.loginForm {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  background-color: white;
+  box-shadow: 10px 10px 10px 4px rgba(22, 22, 24, 0.6);
+  border-radius: 15px;
+  position: relative;
+  top: 220px;
+  padding: 145px;
+  width: 35%;
+  list-style-type: none;
+}
+
+.registerUser {
+  padding: 10px;
+}
+
+/* #loginTitle {
+
+} */
