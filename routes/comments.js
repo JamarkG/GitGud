@@ -23,8 +23,8 @@ router.post("/posts/:id/comments", requireAuth, asyncHandler(async ( req, res) =
   console.log(req.body)
   const postId = parseInt(req.params.id, 10)
   const { userId } = req.session.auth;
-  const comment = await db.Comment.create({
-    body: req.body.comment,
+  await db.Comment.create({
+    body: req.body.body,
     postId,
     userId,
   })

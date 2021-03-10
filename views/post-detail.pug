@@ -22,7 +22,7 @@ block content
     button(class="btn btn-warning" type="submit") Edit
 
   if post.Comments
-    .comments-container
+    div(class="comments-container" id=post.id)
       each comment in post.Comments
         .comment-box
           .comment-box-body(id=`comment-${comment.id}`)

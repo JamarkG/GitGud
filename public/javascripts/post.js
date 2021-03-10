@@ -13,39 +13,33 @@ deleteButtons.forEach((button) =>
   })
 );
 
-// const editButtons = document.querySelectorAll(".edit-button");
 
-// editButtons.forEach((button) =>
-// 	button.addEventListener("click", async (e) => {
-// 		const commentId = e.target.id;
-// 		const result = await fetch(`/comments/${commentId}`, {
-// 			method: "DELETE",
-// 		});
-// 		const data = await result.json();
-// 		if ((data.success = "Success!")) {
-// 			e.target.parentElement.remove();
-// 		}
-// 	})
-// );
 
-const addButtons = document.querySelectorAll(".add-button");
-
-addButtons.forEach((button) =>
-	button.addEventListener("click", async (e) => {
+const addButton = document.querySelector(".add-comment");
+	addButton.addEventListener("click", async (e) => {
     const comment = document.querySelector(".new-comment-box");
-    console.log(comment.name)
-		const result = await fetch(`/posts/${comment.name}/comments`, {
+    const commentsContainer = document.querySelector('.comments-container')
+		const result = await fetch(`/posts/${commentsContainer.id}/comments`, {
 			method: "POST",
 			headers: {
 				"Content-Type": "application/json",
 			},
-			body: JSON.stringify({ body: comment.value }), // send in the text from the input box
+			body: JSON.stringify({ body: comment.value }),
 		});
 		const data = await result.json();
 		if ((data.success = "Success!")) {
-      console.log("We made it here now show the comment")
+      const commentsContainer = document.querySelector('.comments-container')
+      const commentBox = document.createElement('p')
+      commentBox.innerHTML =
+      `<div class="comment-box">
+          <div class="comment-box-body" id= "comment-${comment.id}" >
+            <p class="comment-box-text">${comment.value}</p>
+          </div>
+          <button class="delete-button">Delete</button>
+          <button class="edit-button">Edit</button>
+       </div>
+        `;
+      commentsContainer.appendChild(commentBox);
+      comment.value= "";
 		}
 	})
-);
-
-// above we just need to make it so that it is rendered to the page right away
