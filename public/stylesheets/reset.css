@@ -49,7 +49,7 @@ h1 {
 
 .loginForm {
   display: flex;
-  justify-content: center;
+  justify-content: flex-start;
   align-items: center;
   flex-direction: column;
   background-color: white;
@@ -59,6 +59,7 @@ h1 {
   top: 220px;
   padding: 145px;
   width: 35%;
+  max-width: 400px;
   list-style-type: none;
 }
 
@@ -66,6 +67,21 @@ h1 {
   padding: 10px;
 }
 
-/* #loginTitle {
+#loginTitle {
+  position: absolute;
+  top: 40px;
+  font-size: 40px;
+}
 
-} */
+#slogan {
+  /* display: flex; */
+  font-size: 20px;
+  min-width: 170px;
+  position: absolute;
+  top: 84px;
+  padding: 0px 0px 0px 4.5px;
+}
+
+#title-format {
+  text-decoration: underline solid black 1.5px;
+}

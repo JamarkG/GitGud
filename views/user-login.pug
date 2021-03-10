@@ -9,7 +9,7 @@ html
     include utils.pug
     .loginForm
         #loginTitle GitGud
-        h2=title
+        h2#title-format=title
         +ValidationErrorSummary(errors)
         form(method="post" action="/users/login")
             input(type="hidden" name="_csrf" value=csrfToken)

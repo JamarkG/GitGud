@@ -1,26 +1,35 @@
-extends layout.pug
-include utils.pug
-
-block content
-    +ValidationErrorSummary(errors)
-    form(method="post" action="/users/register")
-        input(type="hidden" name="_csrf" value=csrfToken)
+doctype html
+html
+  head
+      block head
+        title= title
+        link(rel='stylesheet' href='/stylesheets/reset.css')
+        link(rel='stylesheet' href='https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css' integrity='sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh' crossorigin='anonymous')
+  body.loginPage
+    include utils.pug
+    .loginForm
+        #loginTitle GitGud
+        p#slogan Quora for Gamers
+        h2#title-format=title
+        +ValidationErrorSummary(errors)
+        form(method="post" action="/users/register")
+            input(type="hidden" name="_csrf" value=csrfToken)
+            div
+                label First Name
+                input(type="text" name="firstName" required)
+            div
+                label Last Name
+                input(type="text" name="lastName" required)
+            div
+                label Password
+                input(type="password" name="password" required)
+            div
+                label Confirm Password
+                input(type="password" name="confirmPassword" required)
+            div
+                label Email
+                input(type="email" name="emailAddress" required)
+            div
+                button(type="submit") Submit
         div
-            label First Name
-            input(type="text" name="firstName" required)
-        div
-            label Last Name
-            input(type="text" name="lastName" required)
-        div
-            label Password
-            input(type="password" name="password" required)
-        div
-            label Confirm Password
-            input(type="password" name="confirmPassword" required)
-        div
-            label Email
-            input(type="email" name="emailAddress" required)
-        div
-            button(type="submit") Submit
-    div
-        p: a(href="/users/login") Already have an account?
+            p: a(href="/users/login") Already have an account?
