@@ -11,9 +11,9 @@ router.get(
   asyncHandler(async (req, res) => {
     const postId = parseInt(req.params.id, 10);
     const post = await db.Post.findByPk(postId, {
-      include: ['Comments'],
+      include: ["Comments"],
     });
-
+    // console.log(post);
     if (post) {
       res.render("post-detail", {
         title: post.title,
@@ -37,25 +37,39 @@ router.post(
   })
 );
 
-router.get('/edit/:id(\\d+)', csrfProtection, requireAuth, asyncHandler( async ( req, res) => {
-  const postId = parseInt(req.params.id, 10)
-  const post = await db.Post.findByPk(postId)
-  res.render('post-edit', {title: post.title, csrfToken: req.csrfToken(), post})
-}))
-
-router.post('/edit/:id(\\d+)', csrfProtection, requireAuth, asyncHandler( async ( req, res) => {
-  const postId = parseInt(req.params.id, 10)
-  const post = await db.Post.findByPk(postId)
-  const { title, textField}= req.body
-
-  await post.update({
-    title,
-    textField
+router.get(
+  "/edit/:id(\\d+)",
+  csrfProtection,
+  requireAuth,
+  asyncHandler(async (req, res) => {
+    const postId = parseInt(req.params.id, 10);
+    const post = await db.Post.findByPk(postId);
+    res.render("post-edit", {
+      title: post.title,
+      csrfToken: req.csrfToken(),
+      post,
+    });
   })
+);
 
-  res.redirect(`/posts/${postId}`)
-}))
+router.post(
+  "/edit/:id(\\d+)",
+  csrfProtection,
+  requireAuth,
+  asyncHandler(async (req, res) => {
+    const postId = parseInt(req.params.id, 10);
+    const post = await db.Post.findByPk(postId);
+    const { title, textField } = req.body;
 
+    await post.update({
+      title,
+      textField,
+    });
 
+    res.redirect(`/posts/${postId}`);
+  })
+);
+
+// router.ge;
 
 module.exports = router;

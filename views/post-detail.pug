@@ -18,4 +18,11 @@ block content
   form(action=`/posts/edit/${post.id}` method='get')
     input(type="hidden" value=csrfToken name="_csrf")
     button(class="btn btn-warning" type="submit") Edit
-  
+
+  if post.Comments
+    .comments-container
+      each comment in post.Comments
+        .comment-box
+          .comment-box-body(id=`comment-${comment.id}`)
+            p(class="comment-box-text") #{comment.body}
+            button(class="delete-button btn btn-secondary" id=`${comment.id}`) Delete
