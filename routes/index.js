@@ -6,12 +6,22 @@ const { check, validationResult } = require("express-validator");
 const { loginUser, logoutUser, requireAuth } = require("../auth");
 const { names } = require("debug");
 
-
 /* GET home page. */
-router.get('/', asyncHandler( async (req, res, next) => {
-  const topics = await db.Topic.findAll();
-  console.log(topics);
-  res.render('index', { topics, title: 'Welcome to Gitgud' });
-}));
+router.get(
+  "/",
+  asyncHandler(async (req, res, next) => {
+    const topics = await db.Topic.findAll();
+    if (req.session.auth) {
+      const userId = req.session.auth.userId;
+      const user = await db.User.findByPk(userId);
+      res.render("index", {
+        topics,
+        title: `Welcome to Gitgud, ${user.firstName}!`,
+      });
+    } else {
+      res.render("index", { topics, title: `Welcome to Gitgud` });
+    }
+  })
+);
 
 module.exports = router;

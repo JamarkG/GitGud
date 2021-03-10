@@ -1,4 +1,6 @@
 extends layout.pug
+append head
+  script(src="/javascripts/post.js" type="module" defer)
 
 block content
   table(class="table table-striped table-hover table-sm")
@@ -25,4 +27,5 @@ block content
         .comment-box
           .comment-box-body(id=`comment-${comment.id}`)
             p(class="comment-box-text") #{comment.body}
+          if comment.userId === locals.user.id
             button(class="delete-button btn btn-secondary" id=`${comment.id}`) Delete
