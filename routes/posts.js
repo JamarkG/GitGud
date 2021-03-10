@@ -108,7 +108,7 @@ router.post(
 
     if (validatorErrors.isEmpty()) {
       await post.save();
-      res.redirect(`/posts/${userId}`);
+      res.redirect(`/posts/${post.id}`);
     } else {
       const errors = validatorErrors.array().map((error) => error.msg);
       res.render("posts-create", {
