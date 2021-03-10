@@ -90,6 +90,9 @@ const postValidators = [
     .withMessage("Post must have a title")
     .isLength({ max: 100 })
     .withMessage("Title must be under 100 characters or less"),
+  check("textField")
+    .exists({ checkFalsy: true })
+    .withMessage("Post body should not be empty.")
 ];
 
 router.post(
