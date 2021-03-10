@@ -141,8 +141,10 @@ router.post(
 
         if (passwordMatch) {
           loginUser(req, res, user);
-          await req.session.save();
-          res.redirect("/");
+          return req.session.save(() => {
+            res.redirect("/");
+          });
+
         }
       }
 
