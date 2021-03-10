@@ -1,0 +1,12 @@
+extends layout.pug
+
+block content
+  form(action=`/posts/edit/${post.id}` method='post')
+    input(type='hidden' name='_csrf' value=csrfToken)
+    div
+      label Title
+      input(name='title' value=post.title)
+    div
+      label Description
+      textarea(name='textField')= post.textField
+    button(type="submit") Update
