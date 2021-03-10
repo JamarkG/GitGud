@@ -14,7 +14,10 @@ const postValidators = [
         .exists({checkFalsy: true})
         .withMessage('Post must have a title')
         .isLength({max: 100})
-        .withMessage('Title must be under 100 characters or less')
+        .withMessage('Title must be under 100 characters or less.'),
+    chekc('textField')
+        .exists({checkFalsy: true})
+        .withMessage('Post body must have text.')
 ];
 
 router.post('/create', csrfProtection, postValidators, asyncHandler(async (req, res) => {
