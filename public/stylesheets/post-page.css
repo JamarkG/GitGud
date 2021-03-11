@@ -1,3 +1,11 @@
 .edit-box__hidden {
   display: none;
 }
+
+.delete-button__hidden {
+  display: none;
+}
+
+.edit-button__hidden {
+  display: none;
+}
