@@ -24,10 +24,10 @@ block content
   if post.Comments
     div(class="comments-container" id=post.id)
       each comment in post.Comments
-        .comment-box
+        div(class=`comment-box-${comment.id}`)
           .comment-box-body(id=`comment-${comment.id}`)
-            p(class="comment-box-text") #{comment.body}
-          if comment.userId === locals.user.id
+            p(class="comment-box-text" id=`text-${comment.id}`) #{comment.body}
+          if locals.user && comment.userId === locals.user.id
             button(class="delete-button btn btn-secondary" id=`${comment.id}`) Delete
             button(class="edit-button btn btn-secondary" id=`${comment.id}`) Edit
   input(class="new-comment-box" name=post.id)

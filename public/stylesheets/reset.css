@@ -4,15 +4,28 @@ body {
 }
 
 a {
-  color: #00B7FF;
+  color: #00b7ff;
 }
 
 * {
   box-sizing: border-box;
 }
 
-h1, h2, h3, h4, h5, h6, a, ol, li, ul, div, span,
-body, header, nav {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+a,
+ol,
+li,
+ul,
+div,
+span,
+body,
+header,
+nav {
   font-size: 1rem;
   color: inherit;
   background-color: transparent;
@@ -45,7 +58,7 @@ h1 {
 }
 
 .loginPage {
-  background-image: url('/images/nintendo.png');
+  background-image: url("/images/nintendo.png");
   display: flex;
   justify-content: center;
 }
@@ -94,7 +107,13 @@ h1 {
   border: 1px solid blue;
 }
 
-#formInput1, #formInput2, #formInput3, #formInput4, #formInput5, #formInput6, #formInput7 {
+#formInput1,
+#formInput2,
+#formInput3,
+#formInput4,
+#formInput5,
+#formInput6,
+#formInput7 {
   display: flex;
   justify-content: center;
   align-items: flex-start;
@@ -106,3 +125,8 @@ h1 {
   display: flex;
   justify-content: center;
 }
+
+/* .comments-contianer {
+  padding: 100px;
+  border: 3px solid red;
+} */
