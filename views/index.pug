@@ -7,8 +7,9 @@ append head
   script(src="/javascripts/index.js" type="module" defer)
 
 block content
-  p Topics
-  div
-    each topic in topics
-      ul
-        li: a(href=`/posts/?topic=${topic.id}`)= topic.name
+  .topics
+    h1 Topics
+    div
+      each topic in topics
+        ul
+          li: a(href=`/posts/?topic=${topic.id}`)= topic.name
