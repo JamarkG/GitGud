@@ -69,17 +69,24 @@ h1 {
 .topics {
   position: fixed;
   border:1px solid rgba(22, 22, 24, 0.6);
+  border-radius: 9px;
   width: fit-content;
   height: 745px;
   overflow-y: scroll;
   overflow-x: none;
   background-color: rgb(238, 238, 238);
   box-shadow: 2px 0px 3px rgba(22, 22, 24, 0.6);
+  padding-left: 8px;
+  padding-top: 8px;
 }
 
 .topicItem {
   max-width: 100em;
   max-width: 36ch;
+}
+
+.topic_grid {
+
 }
 
 .topicHeading {
