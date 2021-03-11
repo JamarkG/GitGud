@@ -19,7 +19,7 @@ router.get(
         title: `Welcome to Gitgud, ${user.firstName}!`,
       });
     } else {
-      res.render("index", { topics, title: `Welcome to Gitgud` });
+      res.redirect("/users/login");
     }
   })
 );
