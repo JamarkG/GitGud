@@ -56,17 +56,44 @@ h1 {
 
 #navbarLi1 {
   position: relative;
-  right: 45%;
+  right: 46%;
 }
 
 #navbarLi2 {
+  position: relative;
   display: flex;
   flex-direction: column-reverse;
+  right: 10px;
 }
 
 .topics {
+  position: fixed;
+  border:1px solid rgba(22, 22, 24, 0.6);
+  width: fit-content;
+  height: 745px;
+  overflow-y: scroll;
+  overflow-x: none;
+  background-color: rgb(238, 238, 238);
+  box-shadow: 2px 0px 3px rgba(22, 22, 24, 0.6);
+}
+
+.topicItem {
+  max-width: 100em;
+  max-width: 36ch;
+}
+
+.topicHeading {
   position: relative;
-  bottom: 57px;
+  display: flex;
+  align-items: flex-end;
+  left: 105px;
+  color: black;
+  font-weight: bold;
+  border: 2px solid black;
+  border-radius: 5px;
+  background-color: rgb(238, 238, 238);;
+  width: fit-content;
+  box-shadow: 0px 0px 3px 3px rgba(22, 22, 24, 0.6);
 }
 
 #loginRegisterIcon {
@@ -80,15 +107,30 @@ h1 {
 }
 
 #welcomeTitle {
+  width: fit-content;
   text-align: center;
   margin-top: 70px;
   font-size: 40px;
+  color: black;
+  font-weight: 900;
+  border: 2px solid black;
+  border-radius: 5px;
+  background-color: rgb(238, 238, 238);
+  box-shadow: 0px 0px 3px 3px rgba(22, 22, 24, 0.6);
 }
 
+.titleBox {
+  display: flex;
+  justify-content: center;
+}
 .loginPage {
   background-image: url("/images/nintendo.png");
   display: flex;
   justify-content: center;
+}
+
+.homePageBackground {
+  background-image: url("/images/nintendo.png");
 }
 
 .loginForm {
@@ -213,7 +255,49 @@ button:hover {
 }
 
 #topicLinks {
-  color: rgba(194, 0, 0, 0.6);
+  color: rgba(3, 47, 167, 0.6);
   font-weight: bold;
-  font-size: 20px;
+  font-size: 16px;
+}
+
+.postsFeed {
+  width: fit-content;
+  position: relative;
+  left: 39%;
+  border-radius: 15px;
+  padding: 10px;
+  max-width: 40ch;
+}
+
+#postsTitle {
+  border: 1px solid rgba(22, 22, 24, 0.6);
+  border-radius: 8px;
+  margin: 10px 0px 10px 0px;
+  background-color: rgb(238, 238, 238);
+  box-shadow: 0px 0px 3px 3px rgba(22, 22, 24, 0.6);
+}
+
+#createPostBtn {
+  position: relative;
+  width: fit-content;
+  border: 1px solid black;
+  background-color: gray;
+  left: 46.5%;
+  color: white;
+  top: 40px;
+  border-radius: 10px;
+  padding: 5px
+}
+
+#createPostBtn:hover {
+  position: relative;
+  width: fit-content;
+  border: 1px solid black;
+  background-color: rgb(13, 133, 2);
+  left: 46.5%;
+  color: white;
+  top: 40px;
+  border-radius: 10px;
+  padding: 5px;
+  box-shadow: 0px 0px 3px 3px rgba(22, 22, 24, 0.6);
 }

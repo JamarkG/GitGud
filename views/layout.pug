@@ -5,7 +5,8 @@ html
         title= title
         link(rel='stylesheet' href='/stylesheets/reset.css')
         link(rel='stylesheet' href='https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css' integrity='sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh' crossorigin='anonymous')
-  body
+        link(href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400&display=swap" rel="stylesheet")
+  body.homePageBackground
     div
       div#searchBar
         form(method="post" action="/search")
@@ -17,6 +18,7 @@ html
           li#navbarLi1: a(href="/")
             img#homeIcon(src="/images/GGLogo.png")
           li#navbarLi2: a(href="/users/logout") Logout
-    h2#welcomeTitle=title
+      div.titleBox
+        h2#welcomeTitle=title
 
     block content

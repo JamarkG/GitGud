@@ -7,10 +7,18 @@ append head
   script(src="/javascripts/index.js" type="module" defer)
 
 block content
+  a#createPostBtn(href="/posts/create") Create a Post
+  .topicHeading
+      h2 Topics
   .topics
-    h1 Topics
-    div
+    .topic_grid
       each topic in topics
         ul
-          li: a#topicLinks(href=`/posts/?topic=${topic.id}`)= topic.name
+          li.topicItem: a#topicLinks(href=`/posts/?topic=${topic.id}`)= topic.name
             img#topicPics(src=`/images/topicPics/topic${topic.id}.png`)
+  .postsFeed
+    div
+      each post in posts
+        div#postsTitle
+          h3= post.title
+          p= post.textField
