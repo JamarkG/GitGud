@@ -53,7 +53,8 @@ h1 {
 }
 
 .topics {
-  margin-top: 10px;
+  position: relative;
+  bottom: 57px;
 }
 
 #loginRegisterIcon {
@@ -101,17 +102,17 @@ h1 {
 
 #loginTitle {
   position: absolute;
-  top: 20px;
-  font-size: 50px;
+  top: 0;
+  font-size: 66px;
   color:rgba(207, 0, 0, 0.6)
 }
 
 #slogan {
-  /* display: flex; */
   font-size: 20px;
   min-width: 170px;
   position: absolute;
   top: 75px;
+  right: 110px;
   padding: 0px 0px 0px 8.5px;
 }
 
@@ -146,4 +147,15 @@ h1 {
 
 #searchBarIcon {
   height: 20px;
+}
+
+#topicPics {
+  height: 40px;
+  width: 50px;
+}
+
+#topicLinks {
+  color:rgba(194, 0, 0, 0.6);
+  font-weight: bold;
+  font-size: 20px;
 }

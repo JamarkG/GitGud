@@ -12,4 +12,5 @@ block content
     div
       each topic in topics
         ul
-          li: a(href=`/posts/?topic=${topic.id}`)= topic.name
+          li: a#topicLinks(href=`/posts/?topic=${topic.id}`)= topic.name
+            img#topicPics(src=`/images/topicPics/topic${topic.id}.png`)
