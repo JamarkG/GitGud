@@ -29,6 +29,8 @@ h1 {
 
 #navbar {
   position: fixed;
+  display: flex;
+  justify-content: flex-end;
   top: 0;
   left: 0;
   right: 0;
@@ -40,11 +42,14 @@ h1 {
 }
 
 #navbarLi1 {
-
+  position: relative;
+  right: 45%;
 }
 
 #navbarLi2 {
-  float: right;
+  display: flex;
+  flex-direction: column-reverse;
+
 }
 
 .topics {
