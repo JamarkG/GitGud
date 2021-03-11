@@ -9,6 +9,7 @@ a {
 
 * {
   box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
 }
 
 h1,
@@ -39,28 +40,97 @@ h1 {
   font-size: 2rem;
 }
 
-.navbar {
+#navbar {
+  position: fixed;
   display: flex;
+  justify-content: flex-end;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 100;
+  width: 100%;
+  height: 60px;
   list-style-type: none;
   background-color: rgb(233, 233, 233);
 }
 
-#home {
+#navbarLi1 {
+  position: relative;
+  right: 46%;
+}
+
+#navbarLi2 {
+  position: relative;
   display: flex;
-  justify-content: flex-start;
-  align-items: flex-start;
+  flex-direction: column-reverse;
+  right: 10px;
+}
+
+.topics {
+  position: fixed;
+  border:1px solid rgba(22, 22, 24, 0.6);
+  width: fit-content;
+  height: 745px;
+  overflow-y: scroll;
+  overflow-x: none;
+  background-color: rgb(238, 238, 238);
+  box-shadow: 2px 0px 3px rgba(22, 22, 24, 0.6);
+}
+
+.topicItem {
+  max-width: 100em;
+  max-width: 36ch;
+}
+
+.topicHeading {
+  position: relative;
+  display: flex;
+  align-items: flex-end;
+  left: 105px;
+  color: black;
+  font-weight: bold;
+  border: 2px solid black;
+  border-radius: 5px;
+  background-color: rgb(238, 238, 238);;
+  width: fit-content;
+  box-shadow: 0px 0px 3px 3px rgba(22, 22, 24, 0.6);
+}
+
+#loginRegisterIcon {
   height: 65px;
   width: 75px;
 }
 
-#welcomeTitle {
-  text-align: center;
+#homeIcon {
+  height: 60px;
+  width: 75px;
 }
 
+#welcomeTitle {
+  width: fit-content;
+  text-align: center;
+  margin-top: 70px;
+  font-size: 40px;
+  color: black;
+  font-weight: 900;
+  border: 2px solid black;
+  border-radius: 5px;
+  background-color: rgb(238, 238, 238);
+  box-shadow: 0px 0px 3px 3px rgba(22, 22, 24, 0.6);
+}
+
+.titleBox {
+  display: flex;
+  justify-content: center;
+}
 .loginPage {
   background-image: url("/images/nintendo.png");
   display: flex;
   justify-content: center;
+}
+
+.homePageBackground {
+  background-image: url("/images/nintendo.png");
 }
 
 .loginForm {
@@ -69,15 +139,41 @@ h1 {
   align-items: center;
   flex-direction: column;
   background-color: white;
-  box-shadow: 10px 10px 10px 4px rgba(22, 22, 24, 0.6);
+  box-shadow: 0px 0px 3px 3px rgba(22, 22, 24, 0.6);
   border-radius: 15px;
   position: relative;
-  top: 90px;
+  top: 130px;
   padding: 115px;
   width: 35%;
   max-width: 400px;
   max-height: 710px;
   list-style-type: none;
+}
+
+.loginForm label {
+  font-weight: bold;
+}
+
+.loginForm button {
+  padding: 7px 21px;
+  margin-top: 10px;
+  background-color: rgb(251, 84, 84);
+  border: none;
+  color: white;
+  font-size: 20px;
+  cursor: pointer;
+  transition: background 0.2s ease-in-out;
+  border-radius: 20px;
+}
+
+.loginForm input {
+  border-radius: 5px;
+  padding: 4px 12px;
+  border: 1px solid gray;
+}
+
+button:hover {
+  background-color: rgb(195, 62, 62);
 }
 
 .registerUser {
@@ -86,25 +182,40 @@ h1 {
 
 #loginTitle {
   position: absolute;
-  top: 40px;
-  font-size: 40px;
+  top: 0;
+  font-size: 66px;
+  color: rgba(207, 0, 0, 0.6);
 }
 
 #slogan {
-  /* display: flex; */
   font-size: 20px;
   min-width: 170px;
   position: absolute;
-  top: 84px;
-  padding: 0px 0px 0px 4.5px;
+  top: 75px;
+  right: 110px;
+  padding: 0px 0px 0px 8.5px;
+  text-align: center;
 }
 
 #title-format {
-  text-decoration: underline solid black 1.5px;
+  /* text-decoration: underline solid black 1.5px; */
+  padding-top: 25px;
+  padding-bottom: 5px;
+  /* border-bottom: 1px solid black; */
+  width: 100%;
 }
 
 .input-hover:hover {
   border: 1px solid blue;
+}
+
+.loginForm a {
+  font-size: 14px;
+  color: gray;
+}
+
+.loginForm a:hover {
+  text-decoration: underline;
 }
 
 #formInput1,
@@ -119,6 +230,7 @@ h1 {
   align-items: flex-start;
   flex-direction: column;
   padding-bottom: 15px;
+  font-weight: 550;
 }
 
 #submitbutton {
@@ -126,7 +238,66 @@ h1 {
   justify-content: center;
 }
 
-/* .comments-contianer {
-  padding: 100px;
-  border: 3px solid red;
-} */
+#searchBar {
+  position: fixed;
+  z-index: 110;
+  display: flex;
+  top: 29px;
+}
+
+#searchBarIcon {
+  height: 20px;
+}
+
+#topicPics {
+  height: 40px;
+  width: 50px;
+}
+
+#topicLinks {
+  color: rgba(3, 47, 167, 0.6);
+  font-weight: bold;
+  font-size: 16px;
+}
+
+.postsFeed {
+  width: fit-content;
+  position: relative;
+  left: 39%;
+  border-radius: 15px;
+  padding: 10px;
+  max-width: 40ch;
+}
+
+#postsTitle {
+  border: 1px solid rgba(22, 22, 24, 0.6);
+  border-radius: 8px;
+  margin: 10px 0px 10px 0px;
+  background-color: rgb(238, 238, 238);
+  box-shadow: 0px 0px 3px 3px rgba(22, 22, 24, 0.6);
+}
+
+#createPostBtn {
+  position: relative;
+  width: fit-content;
+  border: 1px solid black;
+  background-color: gray;
+  left: 46.5%;
+  color: white;
+  top: 40px;
+  border-radius: 10px;
+  padding: 5px
+}
+
+#createPostBtn:hover {
+  position: relative;
+  width: fit-content;
+  border: 1px solid black;
+  background-color: rgb(13, 133, 2);
+  left: 46.5%;
+  color: white;
+  top: 40px;
+  border-radius: 10px;
+  padding: 5px;
+  box-shadow: 0px 0px 3px 3px rgba(22, 22, 24, 0.6);
+}
