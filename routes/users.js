@@ -106,7 +106,7 @@ router.get(
   csrfProtection,
   asyncHandler(async (req, res, next) => {
     res.render("user-login", {
-      title: "User Login",
+      title: "Login",
       csrfToken: req.csrfToken(),
     });
   })
@@ -144,7 +144,6 @@ router.post(
           return req.session.save(() => {
             res.redirect("/");
           });
-
         }
       }
 
