@@ -85,9 +85,9 @@ h1 {
   max-width: 36ch;
 }
 
-.topic_grid {
+/* .topic_grid {
 
-}
+} */
 
 .topicHeading {
   position: relative;
@@ -282,6 +282,7 @@ button:hover {
   margin: 10px 0px 10px 0px;
   background-color: rgb(238, 238, 238);
   box-shadow: 0px 0px 3px 3px rgba(22, 22, 24, 0.6);
+  padding: 10px;
 }
 
 #createPostBtn {
