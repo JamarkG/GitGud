@@ -11,8 +11,9 @@ router.get(
   asyncHandler(async (req, res) => {
     const postId = parseInt(req.params.id, 10);
     const post = await db.Post.findByPk(postId, {
-      include: ["Comments"],
+      include: ["Comments", "Topics"],
     });
+
     // console.log(post);
     if (post) {
       res.render("post-detail", {
@@ -96,33 +97,42 @@ const postValidators = [
 ];
 
 router.post(
-	"/create",
-	csrfProtection,
-	postValidators,
-	asyncHandler(async (req, res) => {
-		const { title, textField } = req.body;
-		const { userId } = req.session.auth;
-		const post = db.Post.build({ title, textField, userId });
+  "/create",
+  csrfProtection,
+  postValidators,
+  asyncHandler(async (req, res) => {
+    const { title, textField } = req.body;
+    const { userId } = req.session.auth;
+    const post = db.Post.build({ title, textField, userId });
 
-		delete req.body._csrf;
-		delete req.body.title;
-		delete req.body.textField;
-		const validatorErrors = validationResult(req);
+    delete req.body._csrf;
+    delete req.body.title;
+    delete req.body.textField;
+    const validatorErrors = validationResult(req);
 
-		if (validatorErrors.isEmpty()) {
-			await post.save();
-			res.redirect(`/posts/${post.id}`);
-		} else {
-			const errors = validatorErrors.array().map((error) => error.msg);
-			res.render("posts-create", {
-				csrfToken: req.csrfToken(),
-				errors,
-				title,
-				textField,
-				topics: req.body,
-			});
-		}
-	})
+    console.log(req.body);
+
+    if (validatorErrors.isEmpty()) {
+      await post.save();
+      for (const [key, value] of Object.entries(req.body)) {
+        const topicId = parseInt(value, 10);
+        console.log(topicId);
+        const topic = await db.Topic.findByPk(topicId);
+        console.log(topic);
+        await post.addTopic(topic);
+      }
+      res.redirect(`/posts/${post.id}`);
+    } else {
+      const errors = validatorErrors.array().map((error) => error.msg);
+      res.render("posts-create", {
+        csrfToken: req.csrfToken(),
+        errors,
+        title,
+        textField,
+        topics: req.body,
+      });
+    }
+  })
 );
 
 module.exports = router;
