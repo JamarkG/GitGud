@@ -13,7 +13,7 @@ block content
             each topic in topics
                 div
                     //-may have to add value attribute for input
-                    input(type="checkbox" id=topic.id name=topic.name)
+                    input(type="checkbox" id=topic.id name=topic.name value=topic.id)
                     label(for=topic.name) #{topic.name}
         div
             button(type="submit") Submit
