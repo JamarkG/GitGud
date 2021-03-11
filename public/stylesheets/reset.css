@@ -90,10 +90,8 @@ h1 {
 } */
 
 .topicHeading {
-  position: relative;
-  display: flex;
-  align-items: flex-end;
-  left: 105px;
+  left: 130px;
+  top: 90px;
   color: black;
   font-weight: bold;
   border: 2px solid black;
@@ -101,6 +99,7 @@ h1 {
   background-color: rgb(238, 238, 238);;
   width: fit-content;
   box-shadow: 0px 0px 3px 3px rgba(22, 22, 24, 0.6);
+  position: fixed;
 }
 
 #loginRegisterIcon {
@@ -319,4 +318,9 @@ button:hover {
 #pOfPost {
   padding-top: 5px;
   padding-left: 20px;
+}
+
+#topicTitle {
+  font-size: 32px;
+  padding: 3px;
 }
