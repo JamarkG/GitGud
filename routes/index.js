@@ -16,7 +16,7 @@ router.get(
       const user = await db.User.findByPk(userId);
       res.render("index", {
         topics,
-        title: `Welcome to Gitgud, ${user.firstName}!`,
+        title: `Welcome to GitGud, ${user.firstName}!`,
       });
     } else {
       res.redirect("/users/login");
