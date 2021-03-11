@@ -6,7 +6,7 @@ const { check, validationResult } = require("express-validator");
 const { loginUser, logoutUser, requireAuth } = require("../auth");
 const { names } = require("debug");
 
-/* GET home page. */
+
 router.get(
   "/",
   asyncHandler(async (req, res, next) => {
@@ -23,5 +23,6 @@ router.get(
     }
   })
 );
+
 
 module.exports = router;
