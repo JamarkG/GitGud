@@ -1,4 +1,6 @@
 extends layout.pug
+append head
+  script(src="/javascripts/post.js" type="module" defer)
 
 block content
   table(class="table table-striped table-hover table-sm")
@@ -20,9 +22,13 @@ block content
     button(class="btn btn-warning" type="submit") Edit
 
   if post.Comments
-    .comments-container
+    div(class="comments-container" id=post.id)
       each comment in post.Comments
         .comment-box
           .comment-box-body(id=`comment-${comment.id}`)
             p(class="comment-box-text") #{comment.body}
+          if comment.userId === locals.user.id
             button(class="delete-button btn btn-secondary" id=`${comment.id}`) Delete
+            button(class="edit-button btn btn-secondary" id=`${comment.id}`) Edit
+  input(class="new-comment-box" name=post.id)
+  button(class="add-comment") Add Comment
