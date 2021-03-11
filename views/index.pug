@@ -15,3 +15,9 @@ block content
         ul
           li.topicItem: a#topicLinks(href=`/posts/?topic=${topic.id}`)= topic.name
             img#topicPics(src=`/images/topicPics/topic${topic.id}.png`)
+  .postsFeed
+    div
+      each post in posts
+        div#postsTitle
+          h3= post.title
+          p= post.textField
