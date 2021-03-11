@@ -65,8 +65,23 @@ h1 {
 }
 
 .topics {
+  position: fixed;
+  border:1px solid rgba(22, 22, 24, 0.6);
+  width: fit-content;
+  height: 745px;
+  overflow-y: scroll;
+  overflow-x: none;
+  background-color: rgb(226, 219, 219);
+}
+
+.topicItem {
+  max-width: 100em;
+  max-width: 36ch;
+}
+
+.topicHeading {
   position: relative;
-  bottom: 57px;
+  left: 105px;
 }
 
 #loginRegisterIcon {
@@ -91,6 +106,9 @@ h1 {
   justify-content: center;
 }
 
+/* .homePageBackgorund {
+  background-image: url("/images/nintendo.png");
+} */
 .loginForm {
   display: flex;
   justify-content: flex-start;
