@@ -4,24 +4,27 @@ html
       block head
         title= title
         link(rel='stylesheet' href='/stylesheets/reset.css')
+        link(rel="preconnect" href="https://fonts.gstatic.com")
+        link(href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400&display=swap" rel="stylesheet")
         link(rel='stylesheet' href='https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css' integrity='sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh' crossorigin='anonymous')
   body.loginPage
     include utils.pug
     .loginForm
-        img#loginRegisterIcon(src="/images/GGLogoWhite.png")
+        //- img#loginRegisterIcon(src="/images/GGLogoWhite.png")
         #loginTitle GitGud
         p#slogan Quora for Gamers
-        h2#title-format=title
+        .title-format-container
+          h2#title-format=title
         +ValidationErrorSummary(errors)
         form(method="post" action="/users/login")
             input(type="hidden" name="_csrf" value=csrfToken)
             div#formInput6
-                label Email Address
+                label Email
                 input.input-hover(type='email' name='emailAddress' placeholder="bart@appacademy.com" required)
             div#formInput7
                 label Password
                 input.input-hover(type='password' name='password' placeholder="StrongP@ssword!" required)
             div#submitbutton
-                button(type='submit') Submit
+                button(type='submit') Login
             div.registerUser
                 a(href="/users/register") Don't have an account? Register here!
