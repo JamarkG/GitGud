@@ -27,15 +27,18 @@ h1 {
 }
 
 .navbar {
+  position: relative;
   display: flex;
+  align-items: flex-end;
   list-style-type: none;
   background-color: rgb(233, 233, 233);
+  height: 70px;
 }
 
 #home {
-  display: flex;
-  justify-content: flex-start;
-  align-items: flex-start;
+  position: absolute;
+  left: 800px;
+  bottom: 1px;
   height: 65px;
   width: 75px;
 }
