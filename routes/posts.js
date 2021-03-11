@@ -96,29 +96,33 @@ const postValidators = [
 ];
 
 router.post(
-  "/create",
-  csrfProtection,
-  postValidators,
-  asyncHandler(async (req, res) => {
-    const { title, textField } = req.body;
-    const { userId } = req.session.auth;
-    const post = db.Post.build({ title, textField, userId });
+	"/create",
+	csrfProtection,
+	postValidators,
+	asyncHandler(async (req, res) => {
+		const { title, textField } = req.body;
+		const { userId } = req.session.auth;
+		const post = db.Post.build({ title, textField, userId });
 
-    const validatorErrors = validationResult(req);
+		delete req.body._csrf;
+		delete req.body.title;
+		delete req.body.textField;
+		const validatorErrors = validationResult(req);
 
-    if (validatorErrors.isEmpty()) {
-      await post.save();
-      res.redirect(`/posts/${post.id}`);
-    } else {
-      const errors = validatorErrors.array().map((error) => error.msg);
-      res.render("posts-create", {
-        title: "Create Post",
-        csrfToken: req.csrfToken(),
-        errors,
-        post,
-      });
-    }
-  })
+		if (validatorErrors.isEmpty()) {
+			await post.save();
+			res.redirect(`/posts/${post.id}`);
+		} else {
+			const errors = validatorErrors.array().map((error) => error.msg);
+			res.render("posts-create", {
+				csrfToken: req.csrfToken(),
+				errors,
+				title,
+				textField,
+				topics: req.body,
+			});
+		}
+	})
 );
 
 module.exports = router;
