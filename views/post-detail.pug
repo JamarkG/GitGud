@@ -29,7 +29,13 @@ block content
           .comment-box-body(id=`comment-${comment.id}`)
             p(class="comment-box-text" id=`text-${comment.id}`) #{comment.body}
           if locals.user && comment.userId === locals.user.id
-            button(class="delete-button btn btn-secondary" id=`${comment.id}`) Delete
-            button(class="edit-button btn btn-secondary" id=`${comment.id}`) Edit
+            button(class="delete-button btn btn-secondary" id=`delete-${comment.id}`) Delete
+            button(class="edit-button btn btn-secondary" id=`edit-${comment.id}`) Edit
+            .edit-box__hidden.edit-box(id=`edit-box-${comment.id}`)
+              textarea(id=`text-area-${comment.id}`) #{comment.body}
+              button(class="update-button" id=`update-${comment.id}`) Update
+              button(class="cancel-button" id=`cancel-${comment.id}`) Cancel
+
+
   input(class="new-comment-box" name=post.id)
   button(class="add-comment") Add Comment

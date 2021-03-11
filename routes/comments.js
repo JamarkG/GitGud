@@ -31,23 +31,23 @@ router.post(
       userId,
     });
     res.json({
-      success: "Success!",
+      success: true,
       comment,
     });
   })
 );
 
-router.put(
+router.patch(
   "/comments/:id(\\d+)",
   requireAuth,
   asyncHandler(async (req, res) => {
-    const { userId, postId, body } = req.body;
+    const { body } = req.body;
     const commentId = parseInt(req.params.id, 10);
     const comment = await db.Comment.findByPk(commentId);
     await comment.update({
       body,
     });
-    res.json({ success: "Success!" });
+    res.json({ success: true });
   })
 );
 
