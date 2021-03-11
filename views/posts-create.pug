@@ -1,19 +1,20 @@
 extends layout.pug
 
 block content
-    form(method="post" action="/posts/create")
-        input(type="hidden" name="_csrf" value=csrfToken)
-        div
-            label Title
-            input(type="text" name="title" required)
-        div
-            label
-            textarea(name="textField" required)
-        div
-            each topic in topics
-                div
-                    //-may have to add value attribute for input
-                    input(type="checkbox" id=topic.id name=topic.name)
-                    label(for=topic.name) #{topic.name}
-        div
-            button(type="submit") Submit
+    .createPostForm
+        form(method="post" action="/posts/create")
+            input(type="hidden" name="_csrf" value=csrfToken)
+            .postFieldInput
+                label Title
+                input#postTitleArea(type="text" name="title" required)
+            .postFieldInput
+                label Body
+                textarea#postTextArea(name="textField" required)
+            .topicPostInput
+                each topic in topics
+                    div
+                        //-may have to add value attribute for input
+                        input(type="checkbox" id=topic.id name=topic.name)
+                        label#topicNameInput(for=topic.name) #{topic.name}
+            .submitButtonDiv
+                button#submitCreatePost(type="submit") Submit

@@ -116,6 +116,7 @@ h1 {
   width: fit-content;
   text-align: center;
   margin-top: 70px;
+  padding: 2px 5px 2px 5px;
   font-size: 40px;
   color: black;
   font-weight: 900;
@@ -244,6 +245,19 @@ button:hover {
   justify-content: center;
 }
 
+#submitCreatePost {
+  padding: 7px 21px;
+  margin-top: 10px;
+  background-color: rgb(251, 84, 84);
+  border: none;
+  color: white;
+  font-size: 20px;
+  cursor: pointer;
+  transition: background 0.2s ease-in-out;
+  border-radius: 20px;
+  margin-bottom: 20px;
+}
+
 #searchBar {
   position: fixed;
   z-index: 110;
@@ -273,7 +287,7 @@ button:hover {
   border-radius: 15px;
   padding: 10px;
   max-width: 40ch;
-  top: 20px;
+  top: 40px;
 }
 
 #postsTitle {
@@ -289,7 +303,7 @@ button:hover {
   position: relative;
   width: fit-content;
   border: 1px solid black;
-  background-color: gray;
+  background-color: red;
   left: 46.5%;
   color: white;
   top: 40px;
@@ -323,4 +337,51 @@ button:hover {
 #topicTitle {
   font-size: 32px;
   padding: 3px;
+}
+
+.createPostForm {
+  width: fit-content;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  left: 39%;
+  border: 1px solid rgba(22, 22, 24, 0.6);
+  border-radius: 8px;
+  margin: 10px 0px 140px 0px;
+  background-color: rgb(238, 238, 238);
+  box-shadow: 0px 0px 3px 3px rgba(22, 22, 24, 0.6);
+  padding: 10px;
+  max-width: 40ch;
+  top: 40px;
+  min-width: 500px;
+  max-height: 800px;
+  overflow: scroll;
+}
+
+.postFieldInput {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 10px;
+}
+
+#postTextArea {
+  min-width: 350px;
+  min-height: 100px;
+}
+#postTitleArea {
+  min-width: 250px;
+}
+
+.topicPostInput {
+  margin-top: 15px;
+}
+
+.submitButtonDiv {
+  display: flex;
+  justify-content: center;
+}
+
+#topicNameInput {
+  padding-left: 8px;
 }
