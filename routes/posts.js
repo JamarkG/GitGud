@@ -59,7 +59,9 @@ router.post(
   requireAuth,
   asyncHandler(async (req, res) => {
     const postId = parseInt(req.params.id, 10);
-    const post = await db.Post.findByPk(postId);
+    const post = await db.Post.findByPk(postId, {
+      include: ["Comments", "Topics"],
+    });
     const { title, textField } = req.body;
 
     await post.update({
@@ -106,6 +108,7 @@ router.post(
     const post = db.Post.build({ title, textField, userId });
 
     delete req.body._csrf;
+    s;
     delete req.body.title;
     delete req.body.textField;
     const validatorErrors = validationResult(req);
