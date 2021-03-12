@@ -3,13 +3,14 @@ extends layout
 append head
   //- add page specific styles by appending to the head
   link(rel="stylesheet" href="/stylesheets/index.css")
+  link(rel='stylesheet' href='/stylesheets/reset.css')
   //- add page specific js
   script(src="/javascripts/index.js" type="module" defer)
 
 block content
   a#createPostBtn(href="/posts/create") Create a Post
   .topicHeading
-      h2 Topics
+    h2#topicTitle Topics
   .topics
     .topic_grid
       each topic in topics
@@ -20,5 +21,5 @@ block content
     div
       each post in posts
         div#postsTitle
-          h3= post.title
-          p= post.textField
+          h3#titleOfPost= post.title
+          p#pOfPost= post.textField
