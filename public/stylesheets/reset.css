@@ -344,7 +344,7 @@ button:hover {
   position: relative;
   display: flex;
   justify-content: center;
-  left: 39%;
+  left: 37.5%;
   border: 1px solid rgba(22, 22, 24, 0.6);
   border-radius: 8px;
   margin: 10px 0px 140px 0px;
@@ -355,7 +355,8 @@ button:hover {
   top: 40px;
   min-width: 500px;
   max-height: 800px;
-  overflow: scroll;
+  overflow-y: scroll;
+  overflow-x: hidden;
 }
 
 .postFieldInput {
@@ -384,4 +385,29 @@ button:hover {
 
 #topicNameInput {
   padding-left: 8px;
+}
+
+.postDisplay {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  flex-direction: column;
+  background-color: white;
+  box-shadow: 0px 0px 3px 3px rgba(22, 22, 24, 0.6);
+  border-radius: 15px;
+  position: relative;
+  top: 50px;
+  left: 39%;
+  padding: 25px;
+  width: 35%;
+  max-width: 400px;
+  max-height: 710px;
+  list-style-type: none;
+  overflow-x: hidden;
+  overflow-y: scroll;
+}
+
+.postTextDisplay {
+  display: flex;
+  flex-direction: column;
 }
