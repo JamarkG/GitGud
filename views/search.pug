@@ -2,10 +2,5 @@ extends layout.pug
 
 block content
 
-    //- we want the posts that are associated with the topic we searched
-    //-need to grab posts that include searched topic
     div
-        each post in posts
-            ul
-                li= post.title
-                li= post.textField
+        p=topic.dataValues.name
