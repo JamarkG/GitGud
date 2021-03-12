@@ -1,19 +1,21 @@
-const deleteButtons = document.querySelectorAll(".delete-button");
-
-deleteButtons.forEach((button) =>
-  button.addEventListener("click", async (e) => {
-    const commentId = e.target.id.split("-")[1];
-    const result = await fetch(`/comments/${commentId}`, {
-      method: "DELETE",
-    });
-    const data = await result.json();
-    if ((data.success = "Success!")) {
-      e.target.parentElement.remove();
-    }
-  })
-);
+function findAllDelete() {
+  const deleteButtons = document.querySelectorAll(".delete-button");
+  deleteButtons.forEach((button) =>
+    button.addEventListener("click", async (e) => {
+      const commentId = e.target.id.split("-")[1];
+      const result = await fetch(`/comments/${commentId}`, {
+        method: "DELETE",
+      });
+      const data = await result.json();
+      if ((data.success = "Success!")) {
+        e.target.parentElement.remove();
+      }
+    })
+  );
+}
 
 findAllEdits();
+findAllDelete();
 
 // let editButtons = document.querySelectorAll(".edit-button");
 
@@ -83,6 +85,7 @@ addButton.addEventListener("click", async (e) => {
     });
 
     findAllEdits();
+    findAllDelete();
 
     document.querySelector(".new-comment-box").value = "";
     // console.log(editButtons);
