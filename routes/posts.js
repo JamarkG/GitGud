@@ -1,5 +1,7 @@
 const express = require("express");
 const db = require("../db/models");
+const sequelize = require("sequelize");
+const Op = sequelize.Op;
 const router = express.Router();
 const { csrfProtection, asyncHandler } = require("./utils");
 const { check, validationResult } = require("express-validator");
@@ -45,9 +47,11 @@ router.get(
   asyncHandler(async (req, res) => {
     const postId = parseInt(req.params.id, 10);
     const post = await db.Post.findByPk(postId);
+    const topics = await db.Topic.findAll();
     res.render("post-edit", {
       title: post.title,
       csrfToken: req.csrfToken(),
+      topics,
       post,
     });
   })
@@ -61,6 +65,23 @@ router.post(
     const postId = parseInt(req.params.id, 10);
     const post = await db.Post.findByPk(postId);
     const { title, textField } = req.body;
+
+    delete req.body._csrf;
+    delete req.body.title;
+    delete req.body.textField;
+    // console.log(req.body);
+
+    const topicsId = Object.values(req.body);
+
+    const topics = await db.Topic.findAll({
+      where: {
+        id: {
+          [Op.in]: topicsId,
+        },
+      },
+    });
+
+    await post.setTopics(topics);
 
     await post.update({
       title,
@@ -104,13 +125,12 @@ router.post(
     const { title, textField } = req.body;
     const { userId } = req.session.auth;
     const post = db.Post.build({ title, textField, userId });
+    console.log(req.body);
 
     delete req.body._csrf;
     delete req.body.title;
     delete req.body.textField;
     const validatorErrors = validationResult(req);
-
-    console.log(req.body);
 
     if (validatorErrors.isEmpty()) {
       await post.save();

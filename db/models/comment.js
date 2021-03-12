@@ -20,7 +20,11 @@ module.exports = (sequelize, DataTypes) => {
   );
   Comment.associate = function (models) {
     Comment.belongsTo(models.User, { foreignKey: "userId" });
-    Comment.belongsTo(models.Post, { foreignKey: "postId" });
+    Comment.belongsTo(models.Post, {
+      foreignKey: "postId",
+      onDelete: "CASCADE",
+      hooks: true,
+    });
   };
   return Comment;
 };

@@ -20,7 +20,11 @@ module.exports = (sequelize, DataTypes) => {
   );
   Post.associate = function (models) {
     Post.belongsTo(models.User, { foreignKey: "userId" });
-    Post.hasMany(models.Comment, { foreignKey: "postId" });
+    Post.hasMany(models.Comment, {
+      foreignKey: "postId",
+      // deleteOn: "CASCADE",
+      // hooks: true,
+    });
 
     const columnMapping = {
       through: "PostTopic",
