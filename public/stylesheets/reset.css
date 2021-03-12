@@ -356,7 +356,7 @@ button:hover {
   min-width: 500px;
   min-height: 350px;
   max-height: 800px;
-  overflow-y: scroll;
+  overflow-y: auto;
   overflow-x: hidden;
 }
 
