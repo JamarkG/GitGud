@@ -28,3 +28,11 @@ html
                 button(type='submit') Login
             div.registerUser
                 a(href="/users/register") Don't have an account? Register here!
+        form(method="post" action="/users/login")
+            input(type="hidden" name="_csrf" value=csrfToken)
+            div#formInput6
+                input.input-hover(type='email' name='emailAddress' value="tony.stark@gmail.com" hidden)
+            div#formInput7
+                input.input-hover(type='password' name='password' value="P@ssw0rd" hidden)
+            div#submitbutton
+                button(type='submit' class="demo-button") Demo
