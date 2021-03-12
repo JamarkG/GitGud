@@ -21,6 +21,14 @@ module.exports = (sequelize, DataTypes) => {
   Post.associate = function (models) {
     Post.belongsTo(models.User, { foreignKey: "userId" });
     Post.hasMany(models.Comment, { foreignKey: "postId" });
+
+    const columnMapping = {
+      through: "PostTopic",
+      otherKey: "topicId",
+      foreignKey: "postId",
+    };
+
+    Post.belongsToMany(models.Topic, columnMapping);
   };
   return Post;
 };
