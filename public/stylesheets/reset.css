@@ -354,8 +354,9 @@ button:hover {
   max-width: 40ch;
   top: 40px;
   min-width: 500px;
+  min-height: 350px;
   max-height: 800px;
-  overflow-y: scroll;
+  overflow-y: auto;
   overflow-x: hidden;
 }
 
@@ -410,4 +411,26 @@ button:hover {
 .postTextDisplay {
   display: flex;
   flex-direction: column;
+}
+
+.updateEditBtn {
+  display: flex;
+  justify-content: center;
+}
+
+#updateBtnId {
+  position: relative;
+  width: fit-content;
+  border: 1px solid black;
+  background-color: red;
+
+  color: white;
+  top: 40px;
+  border-radius: 10px;
+  padding: 5px
+}
+
+#editTextArea {
+  min-width: 350px;
+  min-height: 100px;
 }
