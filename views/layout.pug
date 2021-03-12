@@ -9,9 +9,9 @@ html
   body.homePageBackground
     div
       div#searchBar
-        form(method="post" action="/search")
-            input(type="search" placeholder="Search..." name="search")
-            button(type="submit")
+        form(method="get" action="/search")
+            input#searchInput(type="search" placeholder="Search..." name="search")
+            button#searchBtn(type="submit" )
               img#searchBarIcon(src="/images/searchBar.png")
       div
         ul#navbar
