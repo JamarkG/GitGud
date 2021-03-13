@@ -4,8 +4,8 @@ block content
 
     div#postSearchDiv
         if noReturnMessage
-            div
-                p= `${noReturnMessage}`
+            div#noReturnMsgDiv
+                p#noReturnMsg= `${noReturnMessage}`
         if posts
             each post in posts
                 div.searchPost

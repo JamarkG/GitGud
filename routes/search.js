@@ -26,7 +26,7 @@ router.get('/search/?', asyncHandler(async (req, res) => {
             })
             res.render('search', { posts })
         } else {
-            const noReturnMessage = 'Your search did not return any results';
+            const noReturnMessage = 'Your search did not return any results!';
             res.render('search', { noReturnMessage })
         }
     }
@@ -53,11 +53,11 @@ router.get('/search/?', asyncHandler(async (req, res) => {
             })
             res.render('search', { posts })
         } else {
-            const noReturnMessage = 'Your search did not return any results';
+            const noReturnMessage = 'Your search did not return any results!';
             res.render('search', { noReturnMessage })
         }
     } else {
-        const noReturnMessage = 'Your search did not return any results';
+        const noReturnMessage = 'Your search did not return any results!';
         res.render('search', { noReturnMessage })
     }
 }))
