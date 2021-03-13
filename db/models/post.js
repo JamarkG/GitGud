@@ -22,8 +22,8 @@ module.exports = (sequelize, DataTypes) => {
     Post.belongsTo(models.User, { foreignKey: "userId" });
     Post.hasMany(models.Comment, {
       foreignKey: "postId",
-      // deleteOn: "CASCADE",
-      // hooks: true,
+      onDelete: "CASCADE",
+      hooks: true,
     });
 
     const columnMapping = {

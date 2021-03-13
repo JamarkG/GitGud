@@ -2,32 +2,37 @@ extends layout.pug
 append head
   script(src="/javascripts/post.js" type="module" defer)
   link(rel='stylesheet' href='../stylesheets/post-page.css')
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
 
 block content
-  .postDisplay
-    div.postTextDisplay
-      p= post.textField
-    form(action=`/posts/${post.id}` method='post')
-      input(type="hidden" value=csrfToken name="_csrf")
-      button(class="btn btn-danger" type="submit") Delete
-    form(action=`/posts/edit/${post.id}` method='get')
-      input(type="hidden" value=csrfToken name="_csrf")
-      button(class="btn btn-warning" type="submit") Edit
-
-    if post.Comments
-      div(class="comments-container" id=post.id)
-        each comment in post.Comments
-          div(class=`comment-box-${comment.id}`)
-            .comment-box-body(id=`comment-${comment.id}`)
-              p(class="comment-box-text" id=`text-${comment.id}`) #{comment.body}
-            if locals.user && comment.userId === locals.user.id
-              button(class="delete-button" id=`delete-${comment.id}`) Delete
-              button(class="edit-button" id=`edit-${comment.id}`) Edit
-              .edit-box__hidden.edit-box(id=`edit-box-${comment.id}`)
-                textarea(id=`text-area-${comment.id}`) #{comment.body}
-                button(class="update-button" id=`update-${comment.id}`) Update
-                button(class="cancel-button" id=`cancel-${comment.id}`) Cancel
-
-
-    input(class="new-comment-box" name=post.id)
-    button(class="add-comment") Add Comment
+  .pageContainer
+    .postDisplay
+      div.postTextDisplay
+        p= post.textField
+      div.delete-edit
+        form(action=`/posts/${post.id}` method='post')
+          input(type="hidden" value=csrfToken name="_csrf")
+          button(class="delete-button-post" type="submit") Delete
+        form(action=`/posts/edit/${post.id}` method='get')
+          input(type="hidden" value=csrfToken name="_csrf")
+          button(class="edit-button-post" type="submit") Edit
+    .commentsDisplay
+      div
+        if post.Comments
+          div(class="comments-container" id=post.id)
+            each comment in post.Comments
+              div(class=`comment-box-${comment.id} comment-box`)
+                .comment-box-body(id=`comment-${comment.id}`)
+                  p(class="comment-box-text" id=`text-${comment.id}`) #{comment.body}
+                if locals.user && comment.userId === locals.user.id
+                  button(class="delete-button" id=`delete-${comment.id}`) Delete
+                  button(class="edit-button" id=`edit-${comment.id}`) Edit
+                  .edit-box__hidden.edit-box(id=`edit-box-${comment.id}`)
+                    textarea(id=`text-area-${comment.id}`) #{comment.body}
+                    button(class="update-button" id=`update-${comment.id}`) Update
+                    button(class="cancel-button" id=`cancel-${comment.id}`) Cancel
+    .commentBox
+      div.text-box-container
+        input(class="new-comment-box" name=post.id)
+        button(class="add-comment") Add Comment
