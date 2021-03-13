@@ -40,7 +40,7 @@ addButton.addEventListener("click", async (e) => {
     // const commentBox = document.createElement("div");
     // commentsContainer.appendChild(commentBox);
     commentsContainer.innerHTML += `
-      <div class="comment-box-${comment.id}">
+      <div class="comment-box-${comment.id} comment-box">
         <div class="comment-box-body" id= "comment-${comment.id}" >
             <p class="comment-box-text" id="text-${comment.id}">${commentText}</p>
         </div>
