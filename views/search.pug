@@ -3,7 +3,11 @@ extends layout.pug
 block content
 
     div#postSearchDiv
-        each post in posts
-            div.searchPost
-                h3: a(href=`/posts/${post.dataValues.id}` class="titleOfPost")= post.dataValues.title
-                p.pOfPost= post.dataValues.textField
+        if noReturnMessage
+            div#noReturnMsgDiv
+                p#noReturnMsg= `${noReturnMessage}`
+        if posts
+            each post in posts
+                div.searchPost
+                    h3: a(href=`/posts/${post.dataValues.id}` class="titleOfPost")= post.dataValues.title
+                    p.pOfPost= post.dataValues.textField
