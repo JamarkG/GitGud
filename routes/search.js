@@ -1,9 +1,10 @@
 const express = require("express");
 const db = require("../db/models");
 const router = express.Router();
-const Sequelize = require('sequelize');
+const Sequelize = require("sequelize");
 const Op = Sequelize.Op;
 const { asyncHandler } = require("./utils");
+
 
 
 router.get('/search/?', asyncHandler(async (req, res) => {
@@ -64,12 +65,10 @@ router.get('/search/?', asyncHandler(async (req, res) => {
             res.render('search', { noReturnMessage })
         }
     } else {
-        const noReturnMessage = 'Your search did not return any results!';
-        res.render('search', { noReturnMessage })
+      const noReturnMessage = "Your search did not return any results!";
+      res.render("search", { noReturnMessage });
     }
-}))
-
-
-
+  })
+);
 
 module.exports = router;
