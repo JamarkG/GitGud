@@ -10,13 +10,14 @@ block content
     .postDisplay
       div.postTextDisplay
         p= post.textField
-      div.delete-edit
-        form(action=`/posts/${post.id}` method='post')
-          input(type="hidden" value=csrfToken name="_csrf")
-          button(class="delete-button-post" type="submit") Delete
-        form(action=`/posts/edit/${post.id}` method='get')
-          input(type="hidden" value=csrfToken name="_csrf")
-          button(class="edit-button-post" type="submit") Edit
+      if locals.user && post.userId === locals.user.id
+        div.delete-edit
+          form(action=`/posts/${post.id}` method='post')
+            input(type="hidden" value=csrfToken name="_csrf")
+            button(class="delete-button-post" type="submit") Delete
+          form(action=`/posts/edit/${post.id}` method='get')
+            input(type="hidden" value=csrfToken name="_csrf")
+            button(class="edit-button-post" type="submit") Edit
     .commentsDisplay
       div
         if post.Comments
