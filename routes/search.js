@@ -7,6 +7,7 @@ const { asyncHandler } = require("./utils");
 
 
 router.get('/search/?', asyncHandler(async (req, res) => {
+    const searchInsensitive = req.query.search.toLowerCase()
     if (req.query.topic) {
 
         const topicId = req.query.topic // 2
@@ -33,7 +34,13 @@ router.get('/search/?', asyncHandler(async (req, res) => {
     else if (req.query.search) {
         const topic = await db.Topic.findOne({
                     where: {
-                        name: `${req.query.search}`
+                        name: {
+                            [Op.or]: {
+                                [Op.iLike]: `%${req.query.search}%`,
+                                [Op.substring]: req.query.search,
+                                [Op.substring]: searchInsensitive
+                            }
+                        }
                     }
                 })
         const topicID = topic.dataValues.id
