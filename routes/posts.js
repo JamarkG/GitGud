@@ -112,25 +112,6 @@ router.post(
         topics,
       });
     }
-
-    // const topicsId = Object.values(req.body);
-
-    // const topics = await db.Topic.findAll({
-    //   where: {
-    //     id: {
-    //       [Op.in]: topicsId,
-    //     },
-    //   },
-    // });
-
-    // await post.setTopics(topics);
-
-    // await post.update({
-    //   title,
-    //   textField,
-    // });
-
-    // res.redirect(`/posts/${postId}`);
   })
 );
 
