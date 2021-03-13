@@ -24,5 +24,6 @@ block content
         div.postsTitle
           h3: a(href=`/posts/${post.id}` class="titleOfPost")= post.title
           p.pOfPost= post.textField
+          .topicPics2Div
             each topic in post.Topics
-              img#topicPics(src=`/images/topicPics/topic${topic.id}.png`)
+                img.topicPics2(src=`/images/topicPics/topic${topic.id}.png`)
