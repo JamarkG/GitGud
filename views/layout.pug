@@ -10,6 +10,7 @@ html
     div
       div#searchBar
         form(method="get" action="/search")
+            input(type="hidden" name="_csrf" value=csrfToken)
             input#searchInput(type="search" placeholder="Search..." name="search")
             button#searchBtn(type="submit" )
               img#searchBarIcon(src="/images/searchBar.png")

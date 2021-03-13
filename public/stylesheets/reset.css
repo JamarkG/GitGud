@@ -294,13 +294,13 @@ button:hover {
 	top: 40px;
 }
 
-#postsTitle {
-	border: 1px solid rgba(22, 22, 24, 0.6);
-	border-radius: 8px;
-	margin: 10px 0px 10px 0px;
-	background-color: rgb(238, 238, 238);
-	box-shadow: 0px 0px 3px 3px rgba(22, 22, 24, 0.6);
-	padding: 10px;
+.postsTitle {
+  border: 1px solid rgba(22, 22, 24, 0.6);
+  border-radius: 8px;
+  margin: 10px 0px 10px 0px;
+  background-color: rgb(238, 238, 238);
+  box-shadow: 0px 0px 3px 3px rgba(22, 22, 24, 0.6);
+  padding: 10px;
 }
 
 #createPostBtn {
@@ -328,14 +328,14 @@ button:hover {
 	box-shadow: 0px 0px 3px 3px rgba(22, 22, 24, 0.6);
 }
 
-#titleOfPost {
-	font-size: 20px;
-	font-weight: 600;
+.titleOfPost {
+  font-size: 20px;
+  font-weight: 600;
 }
 
-#pOfPost {
-	padding-top: 5px;
-	padding-left: 20px;
+.pOfPost {
+  padding-top: 5px;
+  padding-left: 20px;
 }
 
 #topicTitle {
@@ -507,4 +507,24 @@ button:hover {
 #editTextArea {
 	min-width: 350px;
 	min-height: 100px;
+}
+
+.searchPost {
+  border: 1px solid rgba(22, 22, 24, 0.6);
+  border-radius: 8px;
+  margin: 10px 0px 10px 0px;
+  background-color: rgb(238, 238, 238);
+  box-shadow: 0px 0px 3px 3px rgba(22, 22, 24, 0.6);
+  padding: 10px;
+  min-width: 400px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+}
+
+#postSearchDiv {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }

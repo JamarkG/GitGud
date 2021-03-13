@@ -2,10 +2,8 @@ extends layout.pug
 
 block content
 
-    //- we want the posts that are associated with the topic we searched
-    //-need to grab posts that include searched topic
-    div
+    div#postSearchDiv
         each post in posts
-            ul
-                li= post.title
-                li= post.textField
+            div.searchPost
+                h3: a(href=`/posts/${post.dataValues.id}` class="titleOfPost")= post.dataValues.title
+                p.pOfPost= post.dataValues.textField
