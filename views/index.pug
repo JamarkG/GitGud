@@ -16,7 +16,7 @@ block content
     .topic_grid
       each topic in topics
         ul
-          li.topicItem: a#topicLinks(href=`/posts/?topic=${topic.id}`)= topic.name
+          li.topicItem: a#topicLinks(href=`/search/?topic=${topic.id}`)= topic.name
             img#topicPics(src=`/images/topicPics/topic${topic.id}.png`)
   .postsFeed
     div

@@ -9,8 +9,7 @@ html
   body.homePageBackground
     div
       div#searchBar
-        form(method="get" action="/search")
-            input(type="hidden" name="_csrf" value=csrfToken)
+        form(method="get" action="/search/")
             input#searchInput(type="search" placeholder="Search..." name="search")
             button#searchBtn(type="submit" )
               img#searchBarIcon(src="/images/searchBar.png")
