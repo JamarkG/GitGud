@@ -21,6 +21,6 @@ block content
   .postsFeed
     div
       each post in posts
-        div#postsTitle
-          h3: a(href=`/posts/${post.id}` id="titleOfPost")= post.title
-          p#pOfPost= post.textField
+        div.postsTitle
+          h3: a(href=`/posts/${post.id}` class="titleOfPost")= post.title
+          p.pOfPost= post.textField
