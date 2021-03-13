@@ -16,6 +16,7 @@ function findAllDelete() {
 
 findAllEdits();
 findAllDelete();
+const commentErr = document.querySelector(".comment-error");
 
 // let editButtons = document.querySelectorAll(".edit-button");
 
@@ -32,6 +33,8 @@ addButton.addEventListener("click", async (e) => {
   });
   const data = await result.json();
   if (data.success === true) {
+    commentErr.innerHTML = "";
+    commentErr.classList.add("comment-error__hidden");
     const comment = data.comment;
     const commentsContainer = document.querySelector(".comments-container");
     // const commentBox = document.createElement("div");
@@ -74,9 +77,14 @@ addButton.addEventListener("click", async (e) => {
 
       const data = await res.json();
       if (data.success === true) {
+        commentErr.innerHTML = "";
+        commentErr.classList.add("comment-error__hidden");
         document.querySelector(".edit-box").classList.add("edit-box__hidden");
 
         document.getElementById(`text-${comment.id}`).innerText = textArea;
+      } else {
+        commentErr.innerHTML = data.msg;
+        commentErr.classList.remove("comment-error__hidden");
       }
     });
 
@@ -89,6 +97,9 @@ addButton.addEventListener("click", async (e) => {
 
     document.querySelector(".new-comment-box").value = "";
     // console.log(editButtons);
+  } else {
+    commentErr.innerHTML = data.msg;
+    commentErr.classList.remove("comment-error__hidden");
   }
 });
 
@@ -135,6 +146,8 @@ function findAllEdits() {
           const data = await res.json();
 
           if (data.success === true) {
+            commentErr.innerHTML = "";
+            commentErr.classList.add("comment-error__hidden");
             document
               .getElementById(`edit-box-${commentId}`)
               .classList.add("edit-box__hidden");
@@ -147,6 +160,9 @@ function findAllEdits() {
               .classList.remove("edit-button__hidden");
 
             document.getElementById(`text-${commentId}`).innerText = textArea;
+          } else {
+            commentErr.innerHTML = data.msg;
+            commentErr.classList.remove("comment-error__hidden");
           }
         });
 

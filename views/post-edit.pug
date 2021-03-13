@@ -1,6 +1,8 @@
 extends layout.pug
 
 block content
+  include utils.pug
+  +ValidationErrorSummary(errors)
   .createPostForm
     form(action=`/posts/edit/${post.id}` method='post')
       input(type='hidden' name='_csrf' value=csrfToken)
@@ -10,12 +12,13 @@ block content
       div.postFieldInput
         label Body
         textarea#editTextArea(name='textField')= post.textField
-
-      .topicPostInput
-        each topic in topics
-          div
-            //-may have to add value attribute for input
-            input(type="checkbox" id=topic.id name=topic.name value=topic.id)
-            label#topicNameInput(for=topic.name) #{topic.name}
-      .updateEditBtn
-        button#updateBtnId(type="submit") Update
+      fieldset.edit-topic-container(name='topicField')
+        legend Choose your topics
+        .topicPostInput
+          each topic in topics
+            div
+              //-may have to add value attribute for input
+              input(type="checkbox" id=topic.id name=topic.name value=topic.id)
+              label#topicNameInput(for=topic.name) #{topic.name}
+        .updateEditBtn
+          button#updateBtnId(type="submit") Save
