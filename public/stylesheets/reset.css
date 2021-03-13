@@ -551,3 +551,14 @@ button:hover {
   width: 300px;
   margin: 10px auto;
 }
+
+.edit-topic-container {
+  border: 1px solid rgba(0, 0, 0, 0.603);
+  padding: 0px 10px;
+  margin: 10px 0px;
+}
+
+legend {
+  width: auto;
+  font-size: inherit;
+}
