@@ -22,8 +22,8 @@ module.exports = (sequelize, DataTypes) => {
     Comment.belongsTo(models.User, { foreignKey: "userId" });
     Comment.belongsTo(models.Post, {
       foreignKey: "postId",
-      onDelete: "CASCADE",
-      hooks: true,
+    //   onDelete: "CASCADE",
+    //   hooks: true,
     });
   };
   return Comment;
