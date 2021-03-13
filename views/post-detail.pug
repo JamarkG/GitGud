@@ -38,3 +38,8 @@ block content
         input(class="new-comment-box" name=post.id)
         button(class="add-comment") Add Comment
     .comment-error.comment-error__hidden
+    div.topicsInPosts
+      each topic in postTopicsArr
+        div
+          p #{topic.dataValues.name}
+            img#topicPics(src=`/images/topicPics/topic${topic.dataValues.id}.png`)

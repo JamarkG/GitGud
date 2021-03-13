@@ -34,16 +34,32 @@ router.get('/search/?', asyncHandler(async (req, res) => {
     else if (req.query.search) {
         const searchInsensitive = req.query.search.toLowerCase()
         const topic = await db.Topic.findOne({
-                    where: {
-                        name: {
-                            [Op.or]: {
-                                [Op.iLike]: `%${req.query.search}%`,
-                                [Op.substring]: req.query.search,
-                                [Op.substring]: searchInsensitive
-                            }
-                        }
-                    }
-                })
+					// where: {
+					//     name: `${req.query.search}`
+					// }
+					//     where: {
+					// 	[Op.or]: [
+					// 		{
+					// 			name: {
+					// 				[Op.iLike]: req.query.search,
+					// 			},
+					// 			name: {
+					// 				[Op.substring]: req.query,
+					// 				search,
+					// 			},
+					// 		},
+					// 	],
+					// },
+					where: {
+						name: {
+							[Op.or]: {
+								[Op.iLike]: `%${req.query.search}%`,
+								[Op.substring]: req.query.search,
+								[Op.substring]: searchInsensitive,
+							},
+						},
+					},
+				});
         const topicID = topic.dataValues.id
         let array = [];
             //get all post id's where the topic id is equal to the topicId on postTopics if the query is a topic
