@@ -40,6 +40,17 @@ router.post(
   })
 );
 
+const postValidators = [
+  check("title")
+    .exists({ checkFalsy: true })
+    .withMessage("Post must have a title")
+    .isLength({ max: 100 })
+    .withMessage("Title must be under 100 characters or less."),
+  check("textField")
+    .exists({ checkFalsy: true })
+    .withMessage("Post body must have text."),
+];
+
 router.get(
   "/edit/:id(\\d+)",
   csrfProtection,
@@ -60,6 +71,7 @@ router.get(
 router.post(
   "/edit/:id(\\d+)",
   csrfProtection,
+  postValidators,
   requireAuth,
   asyncHandler(async (req, res) => {
     const postId = parseInt(req.params.id, 10);
@@ -71,24 +83,54 @@ router.post(
     delete req.body.textField;
     // console.log(req.body);
 
-    const topicsId = Object.values(req.body);
+    const validatorErrors = validationResult(req);
 
-    const topics = await db.Topic.findAll({
-      where: {
-        id: {
-          [Op.in]: topicsId,
+    if (validatorErrors.isEmpty()) {
+      const topicsId = Object.values(req.body);
+      const topics = await db.Topic.findAll({
+        where: {
+          id: {
+            [Op.in]: topicsId,
+          },
         },
-      },
-    });
+      });
 
-    await post.setTopics(topics);
+      await post.setTopics(topics);
+      await post.update({
+        title,
+        textField,
+      });
+      res.redirect(`/posts/${post.id}`);
+    } else {
+      const errors = validatorErrors.array().map((error) => error.msg);
+      console.log(errors);
+      const topics = await db.Topic.findAll();
+      res.render("post-edit", {
+        csrfToken: req.csrfToken(),
+        errors,
+        post,
+        topics,
+      });
+    }
 
-    await post.update({
-      title,
-      textField,
-    });
+    // const topicsId = Object.values(req.body);
 
-    res.redirect(`/posts/${postId}`);
+    // const topics = await db.Topic.findAll({
+    //   where: {
+    //     id: {
+    //       [Op.in]: topicsId,
+    //     },
+    //   },
+    // });
+
+    // await post.setTopics(topics);
+
+    // await post.update({
+    //   title,
+    //   textField,
+    // });
+
+    // res.redirect(`/posts/${postId}`);
   })
 );
 
@@ -105,17 +147,6 @@ router.get(
     });
   })
 );
-
-const postValidators = [
-  check("title")
-    .exists({ checkFalsy: true })
-    .withMessage("Post must have a title")
-    .isLength({ max: 100 })
-    .withMessage("Title must be under 100 characters or less."),
-  check("textField")
-    .exists({ checkFalsy: true })
-    .withMessage("Post body must have text."),
-];
 
 router.post(
   "/create",

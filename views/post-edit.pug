@@ -1,6 +1,8 @@
 extends layout.pug
 
 block content
+  include utils.pug
+  +ValidationErrorSummary(errors)
   .createPostForm
     form(action=`/posts/edit/${post.id}` method='post')
       input(type='hidden' name='_csrf' value=csrfToken)
