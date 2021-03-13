@@ -440,6 +440,42 @@ button:hover {
   border: 1px solid gray;
 }
 
+.update-button {
+  margin: auto 0px 0px auto;
+  border-radius: 5px;
+  border: none;
+  font-size: 12px;
+  height: min-content;
+  border: 1px solid gray;
+}
+
+.cancel-button {
+  margin: auto 0px 0px 0px;
+  border-radius: 5px;
+  border: none;
+  font-size: 12px;
+  height: min-content;
+  border: 1px solid gray;
+}
+
+.delete-button-post {
+  margin: auto 0px 0px 0px;
+  border-radius: 5px;
+  border: none;
+  font-size: 12px;
+  height: min-content;
+  border: 1px solid gray;
+}
+
+.edit-button-post {
+  margin: auto 0px 0px 0px;
+  border-radius: 5px;
+  border: none;
+  font-size: 12px;
+  height: min-content;
+  border: 1px solid gray;
+}
+
 .comment-box-text {
   font-family: "Roboto", sans-serif;
 }
