@@ -2,8 +2,8 @@ extends layout.pug
 
 block content
 
-    div
+    div#postSearchDiv
         each post in posts
-            div
-                h2=post.dataValues.title
-                p= post.dataValues.textField
+            div.searchPost
+                h3: a(href=`/posts/${post.dataValues.id}` class="titleOfPost")= post.dataValues.title
+                p.pOfPost= post.dataValues.textField
