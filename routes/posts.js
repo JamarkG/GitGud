@@ -77,7 +77,7 @@ router.post(
     const postId = parseInt(req.params.id, 10);
     const post = await db.Post.findByPk(postId);
     const { title, textField } = req.body;
-
+    console.log(req.body);
     delete req.body._csrf;
     delete req.body.title;
     delete req.body.textField;

@@ -12,7 +12,7 @@ block content
       div.postFieldInput
         label Body
         textarea#editTextArea(name='textField')= post.textField
-      fieldset.edit-topic-container
+      fieldset.edit-topic-container(name='topicField')
         legend Choose your topics
         .topicPostInput
           each topic in topics

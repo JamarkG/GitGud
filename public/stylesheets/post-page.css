@@ -9,3 +9,15 @@
 .edit-button__hidden {
   display: none;
 }
+
+.comment-error__hidden {
+  display: none;
+}
+
+.comment-error {
+  background-color: white;
+  color: red;
+  font-weight: bold;
+  border-radius: 3px;
+  padding: 3px;
+}
