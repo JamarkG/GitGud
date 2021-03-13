@@ -1,7 +1,8 @@
 const express = require("express");
 const db = require("../db/models");
 const router = express.Router();
-// const { sequelize } = require('../app.js');
+const Sequelize = require('sequelize');
+const Op = Sequelize.Op;
 // const { Op } = require("sequelize");
 const { csrfProtection, asyncHandler } = require("./utils");
 // const { check, validationResult } = require("express-validator");
@@ -14,14 +15,38 @@ router.get('/search', csrfProtection, asyncHandler(async (req, res) => {
             name: `${req.query.search}`
         }
     })
-    const topicID = topic.dataValues.id
+    const topicID = topic.dataValues.id // 2
     // console.log(typeof topicID)
+    let array = [];
     if (topic){
-        const postIDs = await db.PostTopic.findAll({ where:
-            { topicId: topicID
-        }})
-        console.log(postIDs.json())
+        //get all post id's where the topic id is equal to the topicId on postTopics if the query is a topic
+        const postTopics = await db.PostTopic.findAll({ where: { topicId: topicID}})
+         //[3, 5, 6]
+        postTopics.forEach(postTopic => {
+            array.push(postTopic.dataValues.postId)
+        })
     }
+    if (array.length) {
+        const posts = await db.Post.findAll({
+            where: {
+                id: {
+                    [Op.in]: array
+                }
+            }
+        })
+        res.render('search', { posts, csrfToken: req.csrfToken()})
+    }
+    // const queryPost = await db.Post.findAll({
+    //     where: {
+    //         textField: {
+    //             [Op.substring]: req.query.search
+    //         }
+    //     }
+    // })
+    // else {
+    //     const noReturnMessage = 'Your search did not return any results';
+    // }
+
 
     // console.log(topic);
     // const topicName = topic.dataValues.name;
@@ -29,7 +54,6 @@ router.get('/search', csrfProtection, asyncHandler(async (req, res) => {
     // const postsTopics = await db.PostTopic.findAll({ where: topicID =  });
     // const topics = postsTopic.topicId
     // const posts = await db.Post.findAll({ include: topic});
-    res.render('search', { topic, csrfToken: req.csrfToken() });
 }));
 
 

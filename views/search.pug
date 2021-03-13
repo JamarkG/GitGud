@@ -3,4 +3,7 @@ extends layout.pug
 block content
 
     div
-        p=topic.dataValues.name
+        each post in posts
+            div
+                h2=post.dataValues.title
+                p= post.dataValues.textField
