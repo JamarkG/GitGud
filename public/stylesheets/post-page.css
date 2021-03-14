@@ -41,9 +41,29 @@
   overflow: hidden;
 }
 
+.tester {
+  border: 2px solid red;
+}
+
 .topicsLabel {
   font-weight: 600;
   font-size: 20px;
   margin-bottom: 20px;
   margin-top: 10px;
+}
+
+.edit-button-post:hover,
+.edit-button:hover {
+  background-color: rgb(214, 167, 65);
+  color: white;
+}
+
+.update-button:hover {
+  background-color: rgb(95, 196, 255);
+  color: white;
+}
+
+.add-comment:hover {
+  background-color: rgb(197, 197, 197);
+  color: black;
 }
