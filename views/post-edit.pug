@@ -8,7 +8,7 @@ block content
       input(type='hidden' name='_csrf' value=csrfToken)
       div.postFieldInput
         label Title
-        input(name='title' value=post.title)
+        input(class='editTitleArea' name='title' value=post.title)
       div.postFieldInput
         label Body
         textarea#editTextArea(name='textField')= post.textField
@@ -20,5 +20,5 @@ block content
               //-may have to add value attribute for input
               input(type="checkbox" id=topic.id name=topic.name value=topic.id)
               label#topicNameInput(for=topic.name) #{topic.name}
-        .updateEditBtn
-          button#updateBtnId(type="submit") Save
+      .updateEditBtn
+        button#updateBtnId(type="submit") Save
