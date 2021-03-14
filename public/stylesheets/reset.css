@@ -79,7 +79,6 @@ h1 {
   padding-left: 8px;
   padding-top: 8px;
   margin-left: 70px;
-
 }
 
 .topicItem {
@@ -143,7 +142,6 @@ h1 {
   margin-bottom: -15px;
 }
 
-
 .loginPage {
   background-image: url("/images/nintendo.png");
   display: flex;
@@ -155,7 +153,7 @@ h1 {
   background-image: url("/images/racing.jpg");
   background-repeat: no-repeat;
   background-attachment: fixed;
-  background-size: cover
+  background-size: cover;
 }
 
 .loginForm {
@@ -203,6 +201,7 @@ h1 {
 
 button:hover {
   background-color: rgb(195, 62, 62);
+  color: white;
 }
 
 .registerUser {
