@@ -11,3 +11,8 @@ block content
                 div.searchPost
                     h3: a(href=`/posts/${post.dataValues.id}` class="titleOfPost")= post.dataValues.title
                     p.pOfPost= post.dataValues.textField
+        if searchPosts
+            each post in searchPosts
+                div.searchPost
+                    h3: a(href=`/posts/${post.dataValues.id}` class="titleOfPost")= post.dataValues.title
+                    p.pOfPost= post.dataValues.textField
