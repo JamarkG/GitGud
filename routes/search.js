@@ -47,33 +47,22 @@ router.get('/search/?', asyncHandler(async (req, res) => {
         if (!topic){
             const searchPosts = await db.Post.findAll({
                 where: {
-                    // [Op.or]: {
-                    //     title: {
-                    //         [Op.substring]: req.query.search
-                    //     },
-                    //     textField: {
-                    //         [Op.substring]: req.query.search
-                    //     }
-                    // }
                     [Op.or]: {
                         title: {
-                            [Op.or]: {
-                                [Op.substring]: req.query.search,
-                                [Op.substring]: searchInsensitive,
-                                [Op.startsWith]: req.query.search,
-                                [Op.startsWith]: searchInsensitive
-                            }
+                            [Op.or]:[
+                                {[Op.substring]: req.query.search},
+                                {[Op.substring]: searchInsensitive},
+                                {[Op.startsWith]: req.query.search},
+                                {[Op.startsWith]: searchInsensitive}
+                            ]
                         },
                         textField: {
-                            [Op.or]: {
-                                [Op.substring]: req.query.search,
-                                [Op.substring]: searchInsensitive,
-                                [Op.startsWith]: req.query.search,
-                                [Op.startsWith]: searchInsensitive
-                                // [Op.endsWith]: searchInsensitive,
-                                // [Op.endsWith]: req.query.search,
-                                // [Op.startsWith]: searchInsensitive
-                            }
+                            [Op.or]:[
+                                {[Op.substring]: req.query.search},
+                                {[Op.substring]: searchInsensitive},
+                                {[Op.startsWith]: req.query.search},
+                                {[Op.startsWith]: searchInsensitive}
+                            ]
                         }
                     }
                 }
