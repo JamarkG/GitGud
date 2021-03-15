@@ -1,10 +1,11 @@
 const express = require("express");
 const db = require("../db/models");
 const router = express.Router();
+const { QueryTypes, sequelize } = require('sequelize');
 const { csrfProtection, asyncHandler } = require("./utils");
 const { check, validationResult } = require("express-validator");
 const bcrypt = require("bcryptjs");
-const { loginUser, logoutUser } = require("../auth");
+const { loginUser, logoutUser, requireAuth } = require("../auth");
 
 /* GET users listing. */
 router.get(
@@ -165,6 +166,58 @@ router.get("/logout", (req, res) => {
     res.redirect("/users/login");
   });
 });
+
+router.get("/profile",
+  csrfProtection,
+  requireAuth,
+  asyncHandler(async (req, res, next) => {
+    let pK = req.session.auth.userId;
+    const user = await db.User.findByPk(pK);
+    res.render("profile", { user, title: "Update Profile", csrfToken: req.csrfToken() })
+
+  })
+);
+
+router.post("/profile",
+  csrfProtection,
+  requireAuth,
+  asyncHandler(async (req, res, next) => {
+    // console.log(req);
+    let pK = req.session.auth.userId;
+    const user = await db.User.findByPk(pK);
+    if(req.body.firstName){
+      await db.User.update({ firstName: `${req.body.firstName}` }, {
+        where: {
+          firstName: `${user.firstName}`
+        }
+      });
+    }
+    if(req.body.lastName){
+      await db.User.update({ lastName: `${req.body.lastName}` }, {
+        where: {
+          lastName: `${user.lastName}`
+        }
+      });
+    }
+    if(req.body.emailAddress){
+      await db.User.update({ emailAddress: `${req.body.emailAddress}` }, {
+        where: {
+          emailAddress: `${user.emailAddress}`
+        }
+      });
+    }
+
+    const topics = await db.Topic.findAll();
+    const posts = await db.Post.findAll({
+      include: ['Topics']
+    });
+    if (req.session.auth) {
+      const userId = req.session.auth.userId;
+      const user = await db.User.findByPk(userId);
+      res.render("index", { posts, topics, title: `Welcome to GitGud, ${req.body.firstName}!` })
+    }
+  })
+);
 
 // comment test
 // second comment test
