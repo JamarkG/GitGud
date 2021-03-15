@@ -11,26 +11,35 @@ router.get(
   "/:id(\\d+)",
   csrfProtection,
   asyncHandler(async (req, res) => {
-		const postId = parseInt(req.params.id, 10);
-		const post = await db.Post.findByPk(postId, {
-			include: ["Comments", "Topics"],
-		});
-		const postTopicsArr = post.dataValues.Topics;
-		// postTopicsArr.forEach(topic => {
-		//   console.log(topic.dataValues.name) // grabs the name of the topic
-		//   console.log(topic.dataValues.id) // grabs the id of the topic
-		// })
-		if (post) {
-			res.render("post-detail", {
-				title: post.title,
-				post,
-				postTopicsArr,
-				csrfToken: req.csrfToken(),
-			});
-		} else {
-			res.send("<h2>Post could not be found</h2>");
-		}
-	})
+    const postId = parseInt(req.params.id, 10);
+    const post = await db.Post.findByPk(postId, {
+      include: [
+        {
+          model: db.Topic,
+        },
+        {
+          model: db.Comment,
+          include: { model: db.User },
+        },
+      ],
+    });
+    const postTopicsArr = post.dataValues.Topics;
+    // postTopicsArr.forEach(topic => {
+    //   console.log(topic.dataValues.name) // grabs the name of the topic
+    //   console.log(topic.dataValues.id) // grabs the id of the topic
+    // })
+    console.log(post);
+    if (post) {
+      res.render("post-detail", {
+        title: post.title,
+        post,
+        postTopicsArr,
+        csrfToken: req.csrfToken(),
+      });
+    } else {
+      res.send("<h2>Post could not be found</h2>");
+    }
+  })
 );
 
 router.post(

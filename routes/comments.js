@@ -31,6 +31,8 @@ router.post(
   commentValidator,
   asyncHandler(async (req, res) => {
     const validationErrors = validationResult(req).array();
+    const { firstName } = res.locals.user;
+    console.log(firstName);
 
     if (!validationErrors.length) {
       const postId = parseInt(req.params.id, 10);
@@ -43,6 +45,7 @@ router.post(
       res.json({
         success: true,
         comment,
+        firstName,
       });
     } else {
       const { msg } = validationErrors[0];

@@ -25,7 +25,7 @@ block content
             each comment in post.Comments
               div(class=`comment-box-${comment.id} comment-box`)
                 .comment-box-body(id=`comment-${comment.id}`)
-                  p(class="comment-box-text" id=`text-${comment.id}`) #{comment.body}
+                  p(class="comment-box-text" id=`text-${comment.id}`) #{comment.User.firstName} says: #{comment.body}
                 if locals.user && comment.userId === locals.user.id
                   button(class="delete-button" id=`delete-${comment.id}`) Delete
                   button(class="edit-button" id=`edit-${comment.id}`) Edit
