@@ -41,58 +41,14 @@ h1 {
 }
 
 ::-webkit-scrollbar {
-  width: 0px;
+  width: 10px;
 }
 
-/* #scrollpath {
-  position: fixed;
-  top: 0;
-  right: 0;
-  width: 15px;
-  height: 100%;
-  background: rgba(255,255,255,0.05)
-} */
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(transparent, #00ccff);
+  border-radius: 6px;
+}
 
-/* #progressbar {
-  position: fixed;
-  top: 0;
-  right: 0;
-  width: 15px;
-  height: 100%;
-  background: linear-gradient(to top, #008aff,#00ffe7);
-  animation: animate 5s linear infinite;
-} */
-
-/* @keyframes animate {
-  0%,100% {
-    filter: hue-rotate(0deg);
-  }
-  50% {
-    filter: hue-rotate(360deg);
-  }
-} */
-
-/* #progressbar:before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: linear-gradient(to top, #008aff,#00ffe7);
-  filter:blur(10px)
-} */
-
-/* #progressbar:after {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: linear-gradient(to top, #008aff,#00ffe7);
-  filter:blur(30px)
-} */
 
 #navbar {
   position: fixed;
@@ -117,9 +73,27 @@ h1 {
   position: relative;
   display: flex;
   flex-direction: column-reverse;
-  right: 10px;
+  right: 20px;
+  top: 20px;
+  width: fit-content;
+  height: fit-content;
   color: white;
   text-transform: uppercase;
+  border: none;
+  border-radius: 5px;
+  background-color: red;
+  text-decoration: none;
+}
+
+#navbarLi2:hover {
+  color: red;
+  background-color: #00ccff;
+  text-decoration: none;
+}
+
+#navbarLi2 a {
+  color: white;
+  text-decoration: none;
 }
 
 .topics {
@@ -142,10 +116,6 @@ h1 {
   max-width: 100em;
   max-width: 36ch;
 }
-
-/* .topic_grid {
-
-} */
 
 .topicHeading {
   left: 130px;
