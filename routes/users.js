@@ -191,6 +191,7 @@ router.post("/profile",
           firstName: `${user.firstName}`
         }
       });
+      var welcomeTitleName = req.body.firstName;
     }
     if(req.body.lastName){
       await db.User.update({ lastName: `${req.body.lastName}` }, {
@@ -198,6 +199,9 @@ router.post("/profile",
           lastName: `${user.lastName}`
         }
       });
+      if(!req.body.firstName){
+        var welcomeTitleName = user.firstName;
+      }
     }
     if(req.body.emailAddress){
       await db.User.update({ emailAddress: `${req.body.emailAddress}` }, {
@@ -205,6 +209,9 @@ router.post("/profile",
           emailAddress: `${user.emailAddress}`
         }
       });
+      if(!req.body.firstName){
+        var welcomeTitleName = user.firstName;
+      }
     }
 
     const topics = await db.Topic.findAll();
@@ -214,7 +221,7 @@ router.post("/profile",
     if (req.session.auth) {
       const userId = req.session.auth.userId;
       const user = await db.User.findByPk(userId);
-      res.render("index", { posts, topics, title: `Welcome to GitGud, ${req.body.firstName}!` })
+      res.render("index", { posts, topics, title: `Welcome to GitGud, ${welcomeTitleName}!` })
     }
   })
 );
