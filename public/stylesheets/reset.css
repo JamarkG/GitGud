@@ -265,6 +265,12 @@ button:hover {
   border: 1px solid blue;
 }
 
+.input-hover {
+  border-radius: 5px;
+  padding: 4px 12px;
+  border: 1px solid gray;
+}
+
 .loginForm a {
   font-size: 14px;
   color: gray;
@@ -469,9 +475,15 @@ button:hover {
 #postTextArea {
   min-width: 350px;
   min-height: 100px;
+  border-radius: 5px;
+  padding: 4px 12px;
+  border: 1px solid gray;
 }
 #postTitleArea {
   min-width: 250px;
+  border-radius: 5px;
+  padding: 4px 12px;
+  border: 1px solid gray;
 }
 
 .topicPostInput {
@@ -655,7 +667,13 @@ button:hover {
 #editTextArea {
   min-width: 350px;
   min-height: 100px;
-  background-color:rgb(26, 26, 26);
+  background-color: rgb(70, 70, 70);
+  color: white;
+  border: 1px solid white;
+}
+
+#editTitleArea {
+  background-color: rgb(70, 70, 70);
   color: white;
   border: 1px solid white;
 }
@@ -729,13 +747,13 @@ legend {
 }
 
 #postTitleArea {
-  background-color:rgb(26, 26, 26);
+  background-color: rgb(70, 70, 70);
   color: white;
   border: 1px solid white;
 }
 
 #postTextArea {
-  background-color:rgb(26, 26, 26);
+  background-color: rgb(70, 70, 70);
   color: white;
   border: 1px solid white;
 }
@@ -787,4 +805,8 @@ legend {
   border-radius: 5px;
   background-color: red;
   text-decoration: none;
+}
+
+input {
+  background-color: rgb(70, 70, 70);
 }
