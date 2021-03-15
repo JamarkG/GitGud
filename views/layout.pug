@@ -8,8 +8,6 @@ html
         link(href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400&display=swap" rel="stylesheet")
         link(rel='stylesheet' href='/stylesheets/reset.css')
   body.homePageBackground
-    div#progressbar
-    div#scrollpath
     div
       div#searchBar
         form(method="get" action="/search/")
@@ -20,7 +18,7 @@ html
         ul#navbar
           li#navbarLi1: a(href="/")
             img#homeIcon(src="/images/GGLogo.png")
-          li#navbarLi2: a(href="/users/logout") Logout
+          button#navbarLi2: a(href="/users/logout") Logout
       div.titleBoxTopics
         if title
           h2#welcomeTitle=title
