@@ -74,7 +74,9 @@ addButton.addEventListener("click", async (e) => {
         commentErr.classList.add("comment-error__hidden");
         document.querySelector(".edit-box").classList.add("edit-box__hidden");
 
-        document.getElementById(`text-${comment.id}`).innerText = textArea;
+        document.getElementById(
+          `text-${comment.id}`
+        ).innerText = `${data.firstName} says: ${textArea}`;
       } else {
         commentErr.innerHTML = data.msg;
         commentErr.classList.remove("comment-error__hidden");
@@ -152,7 +154,9 @@ function findAllEdits() {
               .getElementById(`edit-${commentId}`)
               .classList.remove("edit-button__hidden");
 
-            document.getElementById(`text-${commentId}`).innerText = textArea;
+            document.getElementById(
+              `text-${commentId}`
+            ).innerText = `${data.firstName} says: ${textArea}`;
           } else {
             commentErr.innerHTML = data.msg;
             commentErr.classList.remove("comment-error__hidden");
