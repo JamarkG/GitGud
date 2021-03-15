@@ -41,7 +41,7 @@ h1 {
 }
 
 ::-webkit-scrollbar {
-  width: 10px;
+  width: 7px;
 }
 
 ::-webkit-scrollbar-thumb {
@@ -89,6 +89,7 @@ h1 {
   color: red;
   background-color: #00ccff;
   text-decoration: none;
+  transition: 1s;
 }
 
 #navbarLi2 a {
@@ -401,20 +402,21 @@ button:hover {
   position: relative;
   width: fit-content;
   border: 1px solid black;
-  background-color: rgb(13, 133, 2);
+  background-color: #00ccff;
   left: 46.5%;
   color: white;
   top: 40px;
   border-radius: 10px;
   padding: 5px;
   box-shadow: 0px 0px 3px 3px rgba(22, 22, 24, 0.6);
+  transition: 1s;
 }
 
 .titleOfPost {
   font-size: 20px;
   font-weight: 600;
   text-decoration: none;
-  
+
 }
 
 .titleOfPost:link {
