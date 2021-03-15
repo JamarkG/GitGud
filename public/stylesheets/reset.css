@@ -745,3 +745,46 @@ legend {
   color: white;
   border: 1px solid white;
 }
+
+#profilePage {
+  position: relative;
+  display: flex;
+  flex-direction: column-reverse;
+  right: 48px;
+  top: 20px;
+  width: fit-content;
+  height: fit-content;
+  color: white;
+  text-transform: uppercase;
+  border: none;
+  border-radius: 5px;
+  background-color: red;
+  text-decoration: none;
+}
+
+#profilePage:hover {
+  color: red;
+  background-color: #00ccff;
+  text-decoration: none;
+  transition: 1s;
+}
+
+#profilePage a {
+  color: white;
+  text-decoration: none;
+}
+
+#updateProfBtn {
+  position: relative;
+  display: flex;
+  flex-direction: column-reverse;
+  top: 20px;
+  width: fit-content;
+  height: fit-content;
+  color: white;
+  text-transform: uppercase;
+  border: none;
+  border-radius: 5px;
+  background-color: red;
+  text-decoration: none;
+}

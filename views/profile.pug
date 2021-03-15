@@ -1,0 +1,17 @@
+extends layout
+
+block content
+    .createPostForm
+        form(method="post" action="/users/profile")
+            input(type="hidden" name="_csrf" value=csrfToken)
+            div.postFieldInput
+                label First Name
+                input.input-hover(type="text" name="firstName" placeholder=`${user.firstName}`)
+            div.postFieldInput
+                label Last Name
+                input.input-hover(type="text" name="lastName" placeholder=`${user.lastName}`)
+            div.postFieldInput
+                label Email
+                input.input-hover(type="email" name="emailAddress" placeholder=`${user.emailAddress}`)
+            div#submitbutton
+                button(type="submit" id="updateProfBtn") Update
