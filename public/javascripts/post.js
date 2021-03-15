@@ -42,7 +42,7 @@ addButton.addEventListener("click", async (e) => {
     commentsContainer.innerHTML += `
       <div class="comment-box-${comment.id} comment-box">
         <div class="comment-box-body" id= "comment-${comment.id}" >
-            <p class="comment-box-text" id="text-${comment.id}">${commentText}</p>
+            <p class="comment-box-text" id="text-${comment.id}">${data.firstName} says: ${commentText}</p>
         </div>
         <button class="delete-button" id="delete-${comment.id}">Delete</button>
         <button class="edit-button" id="edit-${comment.id}">Edit</button>
@@ -56,13 +56,6 @@ addButton.addEventListener("click", async (e) => {
 
     const updateButton = document.getElementById(`update-${comment.id}`);
     const cancelButton = document.getElementById(`cancel-${comment.id}`);
-    const deleteButton = document.getElementById(`delete-${comment.id}`);
-    const editButton = document.getElementById(`edit-${comment.id}`);
-
-    editButton.addEventListener("click", (e) => {
-      console.log(e.target);
-      e.target.classList.remove("edit-box__hidden");
-    });
 
     updateButton.addEventListener("click", async (e) => {
       const textArea = document.getElementById(`text-area-${comment.id}`).value;
@@ -81,7 +74,9 @@ addButton.addEventListener("click", async (e) => {
         commentErr.classList.add("comment-error__hidden");
         document.querySelector(".edit-box").classList.add("edit-box__hidden");
 
-        document.getElementById(`text-${comment.id}`).innerText = textArea;
+        document.getElementById(
+          `text-${comment.id}`
+        ).innerText = `${data.firstName} says: ${textArea}`;
       } else {
         commentErr.innerHTML = data.msg;
         commentErr.classList.remove("comment-error__hidden");
@@ -159,7 +154,9 @@ function findAllEdits() {
               .getElementById(`edit-${commentId}`)
               .classList.remove("edit-button__hidden");
 
-            document.getElementById(`text-${commentId}`).innerText = textArea;
+            document.getElementById(
+              `text-${commentId}`
+            ).innerText = `${data.firstName} says: ${textArea}`;
           } else {
             commentErr.innerHTML = data.msg;
             commentErr.classList.remove("comment-error__hidden");
