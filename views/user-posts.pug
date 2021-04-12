@@ -1,0 +1,20 @@
+extends layout
+
+append head
+  //- add page specific styles by appending to the head
+  link(rel="stylesheet" href="/stylesheets/index.css")
+  link(rel='stylesheet' href='/stylesheets/reset.css')
+  //- add page specific js
+  script(src="/javascripts/search.js" type="module" defer)
+  script(src="/javascripts/index.js" type="module" defer)
+
+block content
+  .postsFeed
+    div
+      each post in posts
+        div.postsTitle
+          h3: a(href=`/posts/${post.id}` class="titleOfPost")= post.title
+          p.pOfPost= post.textField
+          .topicPics2Div
+            each topic in post.Topics
+                img.topicPics2(src=`/images/topicPics/topic${topic.id}.png`)

@@ -49,7 +49,6 @@ h1 {
   border-radius: 6px;
 }
 
-
 #navbar {
   position: fixed;
   display: flex;
@@ -93,6 +92,35 @@ h1 {
 }
 
 #navbarLi2 a {
+  color: white;
+  text-decoration: none;
+}
+
+#my-posts {
+  position: relative;
+  display: flex;
+  flex-direction: column-reverse;
+  right: 20px;
+  top: 20px;
+  width: fit-content;
+  height: fit-content;
+  color: white;
+  text-transform: uppercase;
+  border: none;
+  border-radius: 5px;
+  background-color: red;
+  text-decoration: none;
+  margin-right: 40px;
+}
+
+#my-posts:hover {
+  color: red;
+  background-color: #00ccff;
+  text-decoration: none;
+  transition: 1s;
+}
+
+#my-posts a {
   color: white;
   text-decoration: none;
 }
@@ -312,7 +340,7 @@ button:hover {
   z-index: 110;
   display: flex;
   justify-content: center;
-  align-items:center;
+  align-items: center;
   border-radius: 40px;
   padding-left: 17px;
   margin-top: 20px;
@@ -321,7 +349,7 @@ button:hover {
   outline: none;
 }
 
-#searchBar:hover #searchInput{
+#searchBar:hover #searchInput {
   width: 240px;
   transition: 0.8s ease-out;
 }
@@ -335,7 +363,6 @@ button:hover {
   line-height: 10px;
   width: 0px;
 }
-
 
 #searchBtn {
   border-radius: 40px;
@@ -416,7 +443,6 @@ button:hover {
   font-size: 20px;
   font-weight: 600;
   text-decoration: none;
-
 }
 
 .titleOfPost:link {
@@ -655,7 +681,7 @@ button:hover {
 #editTextArea {
   min-width: 350px;
   min-height: 100px;
-  background-color:rgb(26, 26, 26);
+  background-color: rgb(26, 26, 26);
   color: white;
   border: 1px solid white;
 }
@@ -692,7 +718,7 @@ button:hover {
   border: 2px solid black;
   border-radius: 8px;
   margin: 10px 0px 10px 0px;
-  background-color: rgb(26,26,26);
+  background-color: rgb(26, 26, 26);
   color: white;
   box-shadow: 0px 0px 3px 3px rgba(22, 22, 24, 0.6);
   padding: 10px;
@@ -729,19 +755,19 @@ legend {
 }
 
 #postTitleArea {
-  background-color:rgb(26, 26, 26);
+  background-color: rgb(26, 26, 26);
   color: white;
   border: 1px solid white;
 }
 
 #postTextArea {
-  background-color:rgb(26, 26, 26);
+  background-color: rgb(26, 26, 26);
   color: white;
   border: 1px solid white;
 }
 
 .editTitleArea {
-  background-color:rgb(26, 26, 26);
+  background-color: rgb(26, 26, 26);
   color: white;
   border: 1px solid white;
 }

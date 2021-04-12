@@ -1,9 +1,9 @@
 "use strict";
 module.exports = (sequelize, DataTypes) => {
-  const topicFollows = sequelize.define(
-    "topicFollows",
+  const topicFollow = sequelize.define(
+    "topicFollow",
     {
-      postId: {
+      userId: {
         type: DataTypes.INTEGER,
         allowNull: false,
       },
@@ -14,8 +14,8 @@ module.exports = (sequelize, DataTypes) => {
     },
     {}
   );
-  topicFollows.associate = function (models) {
+  topicFollow.associate = function (models) {
     // associations can be defined here
   };
-  return topicFollows;
+  return topicFollow;
 };

@@ -24,6 +24,14 @@ module.exports = (sequelize, DataTypes) => {
     };
 
     Topic.belongsToMany(models.Post, columnMapping);
+
+    const columnMapping2 = {
+      through: "topicFollow",
+      otherKey: "userId",
+      foreignKey: "topicId",
+    };
+
+    Topic.belongsToMany(models.User, columnMapping2);
   };
   return Topic;
 };

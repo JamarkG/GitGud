@@ -10,9 +10,13 @@ module.exports = {
       },
       topicId: {
         type: Sequelize.INTEGER,
+        references: { model: "Topics" },
+        onDelete: "CASCADE",
       },
-      postId: {
+      userId: {
         type: Sequelize.INTEGER,
+        references: { model: "Users" },
+        onDelete: "CASCADE",
       },
       createdAt: {
         allowNull: false,

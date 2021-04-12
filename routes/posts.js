@@ -42,6 +42,34 @@ router.get(
   })
 );
 
+router.get(
+  "/user",
+  csrfProtection,
+  requireAuth,
+  asyncHandler(async (req, res) => {
+    const userId = req.session.auth.userId;
+    const topics = await db.Topic.findAll();
+    const posts = await db.Post.findAll({
+      where: {
+        userId,
+      },
+      include: ["Topics"],
+    });
+    if (req.session.auth) {
+      const userId = req.session.auth.userId;
+      const user = await db.User.findByPk(userId);
+
+      res.render("user-posts", {
+        posts,
+        topics,
+        title: `${user.firstName}'s Posts!`,
+      });
+    } else {
+      res.redirect("/users/login");
+    }
+  })
+);
+
 router.post(
   "/:id(\\d+)",
   csrfProtection,
