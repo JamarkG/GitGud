@@ -1,33 +1,35 @@
-# GitGud
+# <a href="https://gitgud-app.herokuapp.com/" target="_blank">GitGud</a>
 
-### Description
+## Description
 
-***
-* The app is a question-and-answer website for all things gaming. Users can share tips and tricks on 
-videogames, ask questions and discuss topics related to gaming. Users will also be able to customize their feed based on the topics they follow.
-
-### How to start a development environment
-
+Clone-lite of the popular Q&A site Quora, with a twist of being only for video games. 
 ***
 
-### Technologies Used
-
+## Technologies Used
+- JavaScript
+- Express
+- Sequelize
+- Node.js
+- HTML5
+- CSS3
+- Pug
+- postgreSQL
+- Heroku
 ***
 
-### Link to site
-
+## Features
+- User authentication & logout
+- Demo login
+- Post discussions
+- Reply to discussions 
+- Search discussions, replies, topics
+- Subscribe to topics to customize homepage their feed
 ***
 
-### Link to Wiki docs
+## Views
 
-***
+### Landing Page
 
-### Discussion of two features that show off the team's technical abilities
+### Authenticated Home Page
 
-***
-
-### Discussion of both challenges faced and the way the team solved them
-
-***
-
-### Code snippets to highlight the best code
+### View Discussion
